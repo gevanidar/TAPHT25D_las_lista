@@ -13,7 +13,8 @@ class BookStore:
     # addBook, naming convention is snake case for python
     def add_book(self, author, title):
         """Add a book based on the author and title."""
-        # TODO: implement
+        book = Book(author, title)
+        self.books.append(book)
 
     def get_books(self):
         """Get a list over the books currently in the book store."""
