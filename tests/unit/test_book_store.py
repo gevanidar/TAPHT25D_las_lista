@@ -2,8 +2,8 @@
 
 import pytest
 
-from reading_list import Book
-from reading_list import BookStore
+from reading_list.book import Book
+from reading_list.book_store import BookStore
 
 # Arrange
 @pytest.fixture(name="author")
