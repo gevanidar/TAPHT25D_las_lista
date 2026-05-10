@@ -21,13 +21,17 @@ def setup_book(author, title):
     """Book fixture."""
     return Book(author, title)
 
-def test_add_book_to_book_store(book):
+@pytest.fixture(name="book_store")
+def setup_book_store():
+    """BookStore fixture."""
+    return BookStore()
+
+def test_add_book_to_book_store(book_store, book):
     """Test the function add_book to BookStore.
     The book should be added to the empty bookstore.
     Increasing the number of books in the bookstore from 0 to 1.
     The book stored in the bookstore should be the same book that was added."""
     # Act
-    book_store = BookStore()
     book_store.add_book(book.author, book.title)
 
     books = book_store.get_books()
