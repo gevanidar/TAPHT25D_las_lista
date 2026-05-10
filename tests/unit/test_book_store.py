@@ -30,15 +30,16 @@ def setup_favorite_books():
     favorite_books.book_ids = []
 
     def mock_add(book_id):
-        if book_id not in favorite_books.books_id:
-            favorite_books.books_id.add(book_id)
+        if book_id not in favorite_books.book_ids:
+            favorite_books.book_ids.append(book_id)
+
+    favorite_books.add.side_effect = mock_add
 
     def mock_remove(book_id):
-        if book_id in favorite_books.books_id:
-            favorite_books.books_id.remove(book_id)
+        if book_id in favorite_books.book_ids:
+            favorite_books.book_ids.remove(book_id)
 
     favorite_books.remove.side_effect = mock_remove
-    favorite_books.add.side_effect = mock_add
 
     return favorite_books
 
