@@ -10,7 +10,7 @@
 
 - [X] Skapa filerna README.md, STORIES.md och ANSWERS.md i projektets rotmapp.
 - [ ] Make repository public.
-- [ ] Create `requirements.txt`
+- [X] Create `requirements.txt`
 - [ ] Update README.md with infromation about what has been tested.
 - [ ] Update README.md with infromation about how to start the project.
 
@@ -24,9 +24,9 @@
 
 ### Classes
 
-- [ ] `BookStore`
-    - [ ] `addBook(author, title)`
-    - [ ] `toggleFavorite(book_id)`
+- [X] `BookStore`
+    - [X] `addBook(author, title)`
+    - [X] `toggleFavorite(book_id)`
 
 - [ ] `FavoriteBooks`
     - [ ] `add(book)`
@@ -34,7 +34,7 @@
 
 ### Extra classes
 
-- [ ] `Book`
+- [X] `Book`
 
 
 
