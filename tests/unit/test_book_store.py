@@ -1,5 +1,6 @@
 """Tests for the BookStore."""
 
+from unittest.mock import MagicMock
 import pytest
 
 from reading_list.book import Book
@@ -21,10 +22,19 @@ def setup_book(author, title):
     """Book fixture."""
     return Book(author, title)
 
+@pytest.fixture(name="favorite_books")
+def setup_favorite_books():
+    """FavoriteBooks mock fixture."""
+    favorite_books = MagicMock()
+
+    favorite_books.book_ids = []
+
+    return favorite_books
+
 @pytest.fixture(name="book_store")
-def setup_book_store():
+def setup_book_store(favorite_books):
     """BookStore fixture."""
-    return BookStore()
+    return BookStore(favorite_books)
 
 def test_add_book_to_book_store(book_store, book):
     """Test the function add_book to BookStore.
@@ -47,3 +57,52 @@ def test_add_book_to_book_store(book_store, book):
     assert book_in_store.author == book.author
     assert book_in_store.title == book.title
     assert book_in_store.book_id == book.book_id
+
+def test_toggle_book_favorite_to_favorite(book_store, book):
+    """Test the toggle_favorite method.
+    After toggle the book should be marked as a favorite book."""
+    # Act
+    book_store.add_book(book.author, book.title)
+
+    def mock_add(book_id):
+        if book_id not in book_store.favorite_books.books_id:
+            book_store.favorite_books.books_id.add(book_id)
+
+    def mock_remove(book_id):
+        if book_id in book_store.favorite_books.books_id:
+            book_store.favorite_books.books_id.remove(book_id)
+
+    book_store.favorite_books.remove.side_effect = mock_remove
+    book_store.favorite_books.add.side_effect = mock_add
+
+
+    book_store.toggle_favorite(book.book_id)
+
+    # Assert
+    # Verify that the book is now favorite
+    assert book.book_id in book_store.favorite_books.book_ids
+
+def test_toggle_book_favorite_twice_book_no_longer_a_favorite(book_store, book):
+    """Test the toggle_favorite method.
+    After toggling a favorite book it should no longer be a favorite."""
+    # Act
+    book_store.add_book(book.author, book.title)
+
+    def mock_add(book_id):
+        if book_id not in book_store.favorite_books.books_id:
+            book_store.favorite_books.books_id.add(book_id)
+
+    def mock_remove(book_id):
+        if book_id in book_store.favorite_books.books_id:
+            book_store.favorite_books.books_id.remove(book_id)
+
+    book_store.favorite_books.remove.side_effect = mock_remove
+    book_store.favorite_books.add.side_effect = mock_add
+
+
+    book_store.toggle_favorite(book.book_id)
+    book_store.toggle_favorite(book.book_id)
+
+    # Assert
+    # Verify that the book is no longe favorite
+    assert book.book_id not in book_store.favorite_books.book_ids

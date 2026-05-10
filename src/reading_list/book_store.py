@@ -5,9 +5,10 @@ from .book import Book
 class BookStore:
     """A book store contains a list over available books."""
 
-    def __init__(self):
+    def __init__(self, favorite_books=[]):
         """Initiate an empty bookstore."""
         self.books = []
+        self.favorite_books = favorite_books
 
     # addBook, naming convention is snake case for python
     def add_book(self, author, title):
