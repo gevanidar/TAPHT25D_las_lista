@@ -29,6 +29,17 @@ def setup_favorite_books():
 
     favorite_books.book_ids = []
 
+    def mock_add(book_id):
+        if book_id not in favorite_books.books_id:
+            favorite_books.books_id.add(book_id)
+
+    def mock_remove(book_id):
+        if book_id in favorite_books.books_id:
+            favorite_books.books_id.remove(book_id)
+
+    favorite_books.remove.side_effect = mock_remove
+    favorite_books.add.side_effect = mock_add
+
     return favorite_books
 
 @pytest.fixture(name="book_store")
@@ -64,18 +75,6 @@ def test_toggle_book_favorite_to_favorite(book_store, book):
     # Act
     book_store.add_book(book.author, book.title)
 
-    def mock_add(book_id):
-        if book_id not in book_store.favorite_books.books_id:
-            book_store.favorite_books.books_id.add(book_id)
-
-    def mock_remove(book_id):
-        if book_id in book_store.favorite_books.books_id:
-            book_store.favorite_books.books_id.remove(book_id)
-
-    book_store.favorite_books.remove.side_effect = mock_remove
-    book_store.favorite_books.add.side_effect = mock_add
-
-
     book_store.toggle_favorite(book.book_id)
 
     # Assert
@@ -87,18 +86,6 @@ def test_toggle_book_favorite_twice_book_no_longer_a_favorite(book_store, book):
     After toggling a favorite book it should no longer be a favorite."""
     # Act
     book_store.add_book(book.author, book.title)
-
-    def mock_add(book_id):
-        if book_id not in book_store.favorite_books.books_id:
-            book_store.favorite_books.books_id.add(book_id)
-
-    def mock_remove(book_id):
-        if book_id in book_store.favorite_books.books_id:
-            book_store.favorite_books.books_id.remove(book_id)
-
-    book_store.favorite_books.remove.side_effect = mock_remove
-    book_store.favorite_books.add.side_effect = mock_add
-
 
     book_store.toggle_favorite(book.book_id)
     book_store.toggle_favorite(book.book_id)
