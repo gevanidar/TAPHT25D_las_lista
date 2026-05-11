@@ -14,5 +14,6 @@ class FavoriteBooks:
 
     def remove(self, book_id):
         """Remove a book_id present in the favorite books list."""
-        self.book_ids.remove(book_id)
+        if book_id in self.book_ids:
+            self.book_ids.remove(book_id)
 
