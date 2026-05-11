@@ -13,7 +13,6 @@ class FavoriteBooks:
             self.book_ids.append(book_id)
 
     def remove(self, book_id):
-        """Todo."""
-        print("running un implemented method *(remove)")
-        # TODO: Implement
-        pass
+        """Remove a book_id present in the favorite books list."""
+        self.book_ids.remove(book_id)
+
