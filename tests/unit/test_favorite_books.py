@@ -27,7 +27,7 @@ def test_add_favorite_book(book):
     favorite_books = FavoriteBooks()
 
     # Act
-    favorite_books.add(book)
+    favorite_books.add(book.book_id)
 
     book_ids = favorite_books.book_ids
     count = len(book_ids)
@@ -44,10 +44,10 @@ def test_add_favorite_book_to_favorite_list_containing_another_book(book):
     favorite_books = FavoriteBooks()
     # Arrange
     old_book = Book("Story Teller", "An old tale")
-    favorite_books.add(old_book)
+    favorite_books.add(old_book.book_id)
 
     # Act
-    favorite_books.add(book)
+    favorite_books.add(book.book_id)
 
     book_ids = favorite_books.book_ids
     count = len(book_ids)
@@ -67,12 +67,12 @@ def test_add_favorite_book_already_in_favorite_books_list(book):
     favorite_books = FavoriteBooks()
 
     # Arrange
-    favorite_books.add(book)
+    favorite_books.add(book.book_id)
 
     first_count = len(book_ids)
 
     # Act
-    favorite_books.add(book)
+    favorite_books.add(book.book_id)
 
     book_ids = favorite_books.book_ids
     second_count = len(book_ids)
@@ -90,10 +90,10 @@ def test_remove_favorite_book(book):
     favorite_books = FavoriteBooks()
 
     # Arrange
-    favorite_books.add(book)
+    favorite_books.add(book.book_id)
 
     # Act
-    favorite_books.remove(book)
+    favorite_books.remove(book.book_id)
     
     # Assert
     assert book.book_id not in favorite_books.book_ids
@@ -108,11 +108,11 @@ def test_remove_present_favorite_after_adding_new_favorite_removes_old_favorite_
     favorite_books = FavoriteBooks()
     # Arrange
     old_book = Book("Story Teller", "An old tale")
-    favorite_books.add(old_book)
+    favorite_books.add(old_book.book_id)
 
     # Act
-    favorite_books.add(book)
-    favorite_books.add(old_book)
+    favorite_books.add(book.book_id)
+    favorite_books.remove(old_book.book_id)
 
     book_ids = favorite_books.book_ids
     count = len(book_ids)
