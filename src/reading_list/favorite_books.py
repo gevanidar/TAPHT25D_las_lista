@@ -5,8 +5,7 @@ class FavoriteBooks:
 
     def __init__(self):
         """Todo."""
-        # TODO: Implement
-        pass
+        self.book_ids = []
 
     def add(self, book_id):
         """Todo."""
