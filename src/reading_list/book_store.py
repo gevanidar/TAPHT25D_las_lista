@@ -28,8 +28,16 @@ class BookStore:
     # toggleFavorite, naming convention is snake case for python
     def toggle_favorite(self, book_id):
         """Add a book based on book_id."""
+        book = None
+        for b in self.books:
+            if b.book_id == book_id:
+                book = b
+                break
+
+        if book == None:
+            return
         if book_id not in self.favorite_books.book_ids:
-            self.favorite_books.add(book_id)
+            self.favorite_books.add(book)
         else:
-            self.favorite_books.remove(book_id)
+            self.favorite_books.remove(book)
 
