@@ -8,10 +8,8 @@ class FavoriteBooks:
         self.book_ids = []
 
     def add(self, book_id):
-        """Todo."""
-        print("running un implemented method *(add)")
-        # TODO: Implement
-        pass
+        """Add a book_id to to the favorite books list."""
+        self.book_ids.append(book_id)
 
     def remove(self, book_id):
         """Todo."""
