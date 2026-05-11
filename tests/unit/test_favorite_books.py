@@ -103,6 +103,20 @@ def test_remove_favorite_book(book):
     count = len(book_ids)
     assert count == 0
 
+def test_remove_favorite_book_from_empty_list(book):
+    """Test removing a book to favorite books."""
+    favorite_books = FavoriteBooks()
+
+    # Act
+    favorite_books.remove(book.book_id)
+    
+    # Assert
+    assert book.book_id not in favorite_books.book_ids
+
+    book_ids = favorite_books.book_ids
+    count = len(book_ids)
+    assert count == 0
+
 def test_remove_present_favorite_after_adding_new_favorite_removes_old_favorite_and_keeps_new(book):
     """Test addind a new book the favorite books when another book is already present in list.
     Then remove the old favorite book."""
