@@ -35,9 +35,9 @@ def test_add_favorite_book(book):
     # Assert
     assert count == 1
 
-    favorite_book = book_ids[0]
+    favorite_book_id = book_ids[0]
 
-    assert favorite_book.book_id == book.book_id
+    assert favorite_book_id == book.book_id
 
 def test_add_favorite_book_to_favorite_list_containing_another_book(book):
     """Test adding a book to favorite books list already containing other books."""
@@ -55,11 +55,11 @@ def test_add_favorite_book_to_favorite_list_containing_another_book(book):
     # Assert
     assert count == 2
 
-    old_favorite_book = book_ids[0]
-    assert old_favorite_book.book_id == old_book.book_id
-    favorite_book = book_ids[1]
+    old_favorite_book_id = book_ids[0]
+    assert old_favorite_book_id == old_book.book_id
 
-    assert favorite_book.book_id == book.book_id
+    favorite_book_id = book_ids[1]
+    assert favorite_book_id == book.book_id
 
 
 def test_add_favorite_book_already_in_favorite_books_list(book):
@@ -69,6 +69,7 @@ def test_add_favorite_book_already_in_favorite_books_list(book):
     # Arrange
     favorite_books.add(book.book_id)
 
+    book_ids = favorite_books.book_ids
     first_count = len(book_ids)
 
     # Act
@@ -81,9 +82,9 @@ def test_add_favorite_book_already_in_favorite_books_list(book):
     assert second_count == 1
     assert first_count == second_count
 
-    favorite_book = book_ids[0]
+    favorite_book_id = book_ids[0]
 
-    assert favorite_book.book_id == book.book_id
+    assert favorite_book_id == book.book_id
 
 def test_remove_favorite_book(book):
     """Test removing a book to favorite books."""
