@@ -34,6 +34,9 @@ class BookStore:
                 book = b
                 break
 
+        if not book:
+            return
+
         if book_id not in self.favorite_books.book_ids:
             self.favorite_books.add(book)
         else:
