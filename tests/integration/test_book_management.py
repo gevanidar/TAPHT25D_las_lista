@@ -56,3 +56,12 @@ def test_toggle_book_favorite_twice_book_no_longer_a_favorite(book_store, book):
     # Assert
     # Verify that the book is no longe favorite
     assert book.book_id not in book_store.favorite_books.book_ids
+
+def test_toggle_favorite_for_book_not_present_in_store(book_store, book):
+    """Test the toggle_favorite when book_id is not present in book_store."""
+    # Act
+    book_store.toggle_favorite(book.book_id)
+
+    # Assert
+    # Verify that the book is no longe favorite
+    assert book.book_id not in book_store.favorite_books.book_ids
