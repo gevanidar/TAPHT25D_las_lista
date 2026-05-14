@@ -32,6 +32,7 @@ def setup_book_store(favorite_books):
     """BookStore fixture."""
     return BookStore(favorite_books)
 
+@pytest.mark.integration
 def test_toggle_book_favorite_to_favorite(book_store, book):
     """Test the toggle_favorite method.
     After toggle the book should be marked as a favorite book."""
@@ -44,6 +45,7 @@ def test_toggle_book_favorite_to_favorite(book_store, book):
     # Verify that the book is now favorite
     assert book.book_id in book_store.favorite_books.book_ids
 
+@pytest.mark.integration
 def test_toggle_book_favorite_twice_book_no_longer_a_favorite(book_store, book):
     """Test the toggle_favorite method.
     After toggling a favorite book it should no longer be a favorite."""
@@ -57,6 +59,7 @@ def test_toggle_book_favorite_twice_book_no_longer_a_favorite(book_store, book):
     # Verify that the book is no longe favorite
     assert book.book_id not in book_store.favorite_books.book_ids
 
+@pytest.mark.integration
 def test_toggle_favorite_for_book_not_present_in_store(book_store, book):
     """Test the toggle_favorite when book_id is not present in book_store."""
     # Act

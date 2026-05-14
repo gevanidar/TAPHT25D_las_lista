@@ -20,6 +20,7 @@ def setup_book(author, title):
     """Book fixture."""
     return Book(author, title)
 
+@pytest.mark.unit
 def test_add_book_to_book_store(book):
     """Test generated id is ok."""
 
