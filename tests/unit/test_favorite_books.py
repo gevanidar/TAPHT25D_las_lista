@@ -31,7 +31,7 @@ def test_add_favorite_book(book: Book):
 
     book_ids = favorite_books.book_ids
     count = len(book_ids)
-    
+
     # Assert
     assert count == 1
 
@@ -51,7 +51,7 @@ def test_add_favorite_book_to_favorite_list_containing_another_book(book):
 
     book_ids = favorite_books.book_ids
     count = len(book_ids)
-    
+
     # Assert
     assert count == 2
 
@@ -77,7 +77,7 @@ def test_add_favorite_book_already_in_favorite_books_list(book):
 
     book_ids = favorite_books.book_ids
     second_count = len(book_ids)
-    
+
     # Assert
     assert second_count == 1
     assert first_count == second_count
@@ -95,7 +95,7 @@ def test_remove_favorite_book(book):
 
     # Act
     favorite_books.remove(book)
-    
+
     # Assert
     assert book.book_id not in favorite_books.book_ids
 
@@ -109,7 +109,7 @@ def test_remove_favorite_book_from_empty_list(book):
 
     # Act
     favorite_books.remove(book)
-    
+
     # Assert
     assert book.book_id not in favorite_books.book_ids
 
@@ -131,7 +131,7 @@ def test_remove_present_favorite_after_adding_new_favorite_removes_old_favorite_
 
     book_ids = favorite_books.book_ids
     count = len(book_ids)
-    
+
     # Assert
     assert count == 1
 

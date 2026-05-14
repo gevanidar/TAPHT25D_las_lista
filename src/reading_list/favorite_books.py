@@ -1,4 +1,4 @@
-"""Representation of the list of my favorite books."""
+"""A representation of my favorite books."""
 
 from .book import Book
 

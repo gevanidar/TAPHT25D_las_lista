@@ -1,4 +1,4 @@
-"""Representation of a book store that can contain books."""
+"""A book store that can contain books."""
 
 from .book import Book
 from .favorite_books import FavoriteBooks
@@ -41,4 +41,3 @@ class BookStore:
             self.favorite_books.add(book)
         else:
             self.favorite_books.remove(book)
-
