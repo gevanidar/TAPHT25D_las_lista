@@ -20,4 +20,3 @@ class FavoriteBooks:
         book_id = book.book_id
         if book_id in self.book_ids:
             self.book_ids.remove(book_id)
-

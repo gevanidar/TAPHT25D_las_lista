@@ -1,6 +1,5 @@
 """Tests for the BookStore."""
 
-from unittest.mock import MagicMock
 import pytest
 
 from reading_list.book import Book
