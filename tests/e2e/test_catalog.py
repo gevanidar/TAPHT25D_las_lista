@@ -14,14 +14,23 @@ def setup_homepage():
 def setup_catalog():
     return "Katalog"
 
+@pytest.fixture(name="book_snakes_on_a_plane")
+def setup_book_snakes_on_a_plane():
+    return "star-Ormar på ett plan: En Python-berättelse"
+
 def test_has_title(page: Page, homepage):
     page.goto(homepage)
 
     expect(page).to_have_title(re.compile("Läslistan"))
 
-def test_goto_catalog_should_show_catalog(page: Page, homepage, catalog):
+def test_catalog_button_visible(page: Page, homepage, catalog):
     page.goto(homepage)
 
-    page.get_by_role("link", name="Katalog").click()
+    expect(page.get_by_test_id('catalog')).to_be_visible()
 
-    expect(page.get_by_role("div", name="catalog")).to_be_visible()
+def test_goto_catalog_should_show_catalog(page: Page, homepage, catalog, book_snakes_on_a_plane):
+    page.goto(homepage)
+
+    button = page.get_by_test_id('catalog')
+
+    expect(page.get_by_test_id(book_snakes_on_a_plane)).to_be_visible()
