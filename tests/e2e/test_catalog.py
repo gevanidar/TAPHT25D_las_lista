@@ -23,11 +23,13 @@ def test_has_title(page: Page, homepage):
 
     expect(page).to_have_title(re.compile("Läslistan"))
 
+@pytest.mark.e2e
 def test_catalog_button_visible(page: Page, homepage, catalog):
     page.goto(homepage)
 
     expect(page.get_by_test_id('catalog')).to_be_visible()
 
+@pytest.mark.e2e
 def test_goto_catalog_should_show_catalog(page: Page, homepage, catalog, book_snakes_on_a_plane):
     page.goto(homepage)
 
