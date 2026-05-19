@@ -8,7 +8,9 @@ def step_impl(context):
 
 @when(u'jag trycker på knappen {button}')
 def step_impl(context, button):
-    context.page.get_by_test_id(button).click()
+    locator = context.page.get_by_test_id(button)
+    print(f"{locator=}")
+    locator.click()
 
 @then('bör jag se en lista med {count:d} böcker')
 def step_impl(context, count):
