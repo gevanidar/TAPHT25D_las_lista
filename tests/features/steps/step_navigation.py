@@ -45,14 +45,12 @@ def step_impl(context, div_class):
 @then('bör jag se en label {label}')
 def step_impl(context, label):
     locator = context.page.get_by_label(label)
-    print(f"{locator=}")
     assert locator is not None
 
 
 @then('bör jag se en text {text}')
 def step_impl(context, text):
-    locator = context.page.get_by_text(label)
-    print(f"{locator=}")
+    locator = context.page.get_by_text(text)
     assert locator is not None
 
 
@@ -113,4 +111,4 @@ def step_impl(context, text):
 # ❤️</div>
 # "The Bugs are Coming", George R.R. Martin</div>
 # </div>
-# 
+ 
