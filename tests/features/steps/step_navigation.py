@@ -15,7 +15,7 @@ def step_impl(context, button):
 @then('bör jag se en lista med {count:d} böcker')
 def step_impl(context, count):
     catalog_div = context.page.get_by_role('div', name='catalog')
-    assert count == catalog_div.locator('div', name='book').count()
+    assert count == catalog_div.locator.get_by_role('div', name='book').count()
 
 
 @then(u'bör jag se en div med {div-class}')
