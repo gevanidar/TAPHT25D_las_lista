@@ -7,9 +7,8 @@ def step_impl(context):
     pass
 
 @when(u'jag trycker på knappen {button}')
-def step_impl(context, button):
-    await locator = context.page.get_by_test_id(button)
-    locator.click()
+async def step_impl(context, button):
+    await context.page.get_by_test_id(button).click()
 
 @then('bör jag se en lista med {count:d} böcker')
 def step_impl(context, count):
