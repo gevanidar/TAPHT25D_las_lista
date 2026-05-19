@@ -45,12 +45,14 @@ def step_impl(context, div_class):
 @then('bör jag se label {label}')
 def step_impl(context, label):
     locator = context.page.get_by_label(label)
+    print(f"{locator=}")
     assert locator is not None
 
 
 @then('bör jag se text {text}')
 def step_impl(context, text):
     locator = context.page.get_by_text(label)
+    print(f"{locator=}")
     assert locator is not None
 
 
