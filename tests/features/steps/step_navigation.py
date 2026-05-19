@@ -1,12 +1,10 @@
 from behave import when, then
-from reading_list import HomePage
 
 from behave.api.pending_step import StepNotImplementedError
 
 @given(u'att jag är på hemsidan')
 def step_impl(context):
-    home_page = HomePage(context.page)
-    context.page = context
+    pass
 
 @when(u'jag trycker på knappen <button>')
 def step_impl(context, button):
