@@ -14,6 +14,7 @@ def before_scenario(context, scenario):
     context.page = context.browser.new_page()
     context.page.set_default_timeout(1000)
     context.base_url = "https://tap-ht25-testverktyg.github.io/exam/"
+    context.page.goto(context.base_url)
 
 # Runs directly after each scenario - clean up to avoid memory leaks
 def after_scenario(context, scenario):
