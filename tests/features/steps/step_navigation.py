@@ -6,7 +6,7 @@ from behave.api.pending_step import StepNotImplementedError
 def step_impl(context):
     pass
 
-@when(u'jag trycker på knappen <button>')
+@when(u'jag trycker på knappen {button}')
 def step_impl(context, button):
     context.page.get_by_test_id(button).click()
 
@@ -14,7 +14,7 @@ def step_impl(context, button):
 def step_impl(context, count):
     raise StepNotImplementedError("bör jag se en lista med {count:d} böcker")
 
-@then(u'bör jag se en div med <div-class>')
+@then(u'bör jag se en div med {div-class}')
 def step_impl(context, div_class):
     raise StepNotImplementedError(u'Then bör jag se en div med <div-class>')
     
