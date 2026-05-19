@@ -34,6 +34,6 @@ def test_catalog_button_visible(page: Page, homepage, catalog):
 def test_goto_catalog_should_show_catalog(page: Page, homepage, catalog, book_snakes_on_a_plane):
     page.goto(homepage)
 
-    button = page.get_by_test_id('catalog')
+    button = page.get_by_test_id('catalog').click()
 
     expect(page.get_by_test_id(book_snakes_on_a_plane)).to_be_visible()
