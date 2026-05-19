@@ -9,7 +9,7 @@ def step_impl(context):
 @when(u'jag trycker på knappen {button}')
 def step_impl(context, button):
     locator = context.page.get_by_test_id(button)
-    if not locator.isDisabled():
+    if not locator.is_disabled():
         locator.click()
 
 @then('bör jag se en lista med {count:d} böcker')
