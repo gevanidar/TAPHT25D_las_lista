@@ -32,5 +32,5 @@ Feature: Navigering
 
   Scenario: Naviering till Statistik
     When jag trycker på knappen statistics
-    Then bör jag se en test "Listan har 13 böcker."
-    And bör jag se en test "Våra användare har hjärtmarkerat 0 böcker."
+    Then bör jag se en text "Listan har 13 böcker."
+    And bör jag se en text "Våra användare har hjärtmarkerat 0 böcker."
