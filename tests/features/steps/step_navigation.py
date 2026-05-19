@@ -16,6 +16,7 @@ def step_impl(context, button):
 def step_impl(context, count):
     books = context.page.get_by_role('div', name='book').all()
     print(f"{books=}")
+    assert len(books) == count
     
 
 
