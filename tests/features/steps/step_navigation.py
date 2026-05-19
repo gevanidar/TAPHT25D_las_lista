@@ -1,22 +1,26 @@
 from behave import when, then
 
-@when('jag trycker på knappen "{button}"')
-def step_impl(context, button):
-    raise NotImplementedError("Jag trycker på knappen är inte implementerad än")
+from behave.api.pending_step import StepNotImplementedError
+@given(u'att jag är på hemsidan')
+def step_impl(context):
+    raise StepNotImplementedError(u'Given att jag är på hemsidan')
 
-# TODO: Should there be a data-test-id sent in?
+@when(u'jag trycker på knappen <knapp>')
+def step_impl(context):
+    raise StepNotImplementedError(u'When jag trycker på knappen <knapp>')
+
 @then('bör jag se en lista med {count:d} böcker')
 def step_impl(context, count):
-    raise NotImplementedError("bör jag se en lista med {count:d} böcker")
+    raise StepNotImplementedError("bör jag se en lista med {count:d} böcker")
 
-@then('Then bör jag se en div med {div_class}')
+@then(u'bör jag se en div med <div-class>')
 def step_impl(context, div_class):
-    raise NotImplementedError("Then bör jag se en div med {div_class}")
+    raise StepNotImplementedError(u'Then bör jag se en div med <div-class>')
     
-@then('Then bör jag se label {label}')
+@then('bör jag se label {label}')
 def step_impl(context, label):
-    raise NotImplementedError("Then bör jag se en div med {class}")
+    raise StepNotImplementedError(u'Then bör jag se en text {label}')
 
-@then('Then bör jag se text {text}')
+@then('bör jag se text {text}')
 def step_impl(context, text):
-    raise NotImplementedError("Then bör jag se en div med {class}")
+    raise StepNotImplementedError("bör jag se text {text}")

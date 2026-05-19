@@ -28,7 +28,7 @@ Feature: Navigering
 
   Scenario: Naviering till Mina böcker
     When jag trycker på knappen favorites
-    Then bör jag se en test "När du valt, kommer dina favoritböcker att visas här."
+    Then bör jag se en text "När du valt, kommer dina favoritböcker att visas här."
 
   Scenario: Naviering till Statistik
     When jag trycker på knappen statistics
