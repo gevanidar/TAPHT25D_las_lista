@@ -8,10 +8,10 @@ Feature: Navigering
 
   Scenario Outline: Ska jag kunna navigera till de olika sidorna
     When jag trycker på knappen <button>
-    Then bör jag se en div med <div-class>
+    Then bör jag se en div med <div_class>
 
     Examples:
-      | artist        | class |
+      | button        | div_class |
       | catalog   | catalog             |
       | add-book | form            |
       | favorites        |     favorites          |
