@@ -18,6 +18,7 @@ def setup_catalog():
 def setup_book_snakes_on_a_plane():
     return "star-Ormar på ett plan: En Python-berättelse"
 
+@pytest.mark.e2e
 def test_has_title(page: Page, homepage):
     page.goto(homepage)
 

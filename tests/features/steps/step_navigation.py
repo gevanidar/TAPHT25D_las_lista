@@ -1,9 +1,11 @@
 from behave import when, then
+from reading_list import HomePage
 
 from behave.api.pending_step import StepNotImplementedError
+
 @given(u'att jag är på hemsidan')
 def step_impl(context):
-    raise StepNotImplementedError(u'Given att jag är på hemsidan')
+    home_page = HomePage()
 
 @when(u'jag trycker på knappen <knapp>')
 def step_impl(context):
