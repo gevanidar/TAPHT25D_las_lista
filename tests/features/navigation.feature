@@ -8,7 +8,7 @@ Feature: Navigering
 
   Scenario Outline: Ska jag kunna navigera till de olika sidorna
     When jag trycker på knappen <knapp>
-    Then bör jag se en div med <class>
+    Then bör jag se en div med <div-class>
 
     Examples:
       | artist        | class |
