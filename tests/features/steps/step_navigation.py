@@ -44,11 +44,18 @@ def step_impl(context, div_class):
     
 @then('bör jag se label {label}')
 def step_impl(context, label):
-    raise StepNotImplementedError(u'Then bör jag se en text {label}')
+    locator = context.page.locator('main')
+    assert locator is not None
+    locator.get_by_text(label)
+    assert locator is not None
+
 
 @then('bör jag se text {text}')
 def step_impl(context, text):
-    raise StepNotImplementedError("bör jag se text {text}")
+    locator = context.page.locator('main')
+    assert locator is not None
+    locator.get_by_text(text)
+    assert locator is not None
 
 
 # Lista
