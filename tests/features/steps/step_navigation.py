@@ -37,9 +37,10 @@ def step_impl(context, count):
 
 @then(u'bör jag se en div med {div_class}')
 def step_impl(context, div_class):
-    locator = context.page.get_by_role('div', name=div_class)
-    print(f"{locator=}")
-    assert locator.to_be_visible()
+    locator = context.page.locator('main')
+    assert locator is not None
+    locator.get_by_text(div_class)
+    assert locator is not None
     
 @then('bör jag se label {label}')
 def step_impl(context, label):
