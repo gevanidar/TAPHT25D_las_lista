@@ -17,12 +17,13 @@ def step_impl(context, count):
     books = context.page.get_by_role('div', name='book').all()
     print(f"{books=}")
     assert len(books) == count
-    
 
 
-@then(u'bör jag se en div med {div-class}')
+@then(u'bör jag se en div med {div_class}')
 def step_impl(context, div_class):
-    raise StepNotImplementedError(u'Then bör jag se en div med <div-class>')
+    locator = context.page.get_by_role('div', name=div_class)
+    print(f"{locator=}")
+    assert locator.to_be_visible()
     
 @then('bör jag se label {label}')
 def step_impl(context, label):
