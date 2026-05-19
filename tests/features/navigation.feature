@@ -7,7 +7,7 @@ Feature: Navigering
     Given att jag är på hemsidan
 
   Scenario Outline: Ska jag kunna navigera till de olika sidorna
-    When jag trycker på knappen <knapp>
+    When jag trycker på knappen <button>
     Then bör jag se en div med <div-class>
 
     Examples:

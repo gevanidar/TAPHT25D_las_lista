@@ -6,10 +6,11 @@ from behave.api.pending_step import StepNotImplementedError
 @given(u'att jag är på hemsidan')
 def step_impl(context):
     home_page = HomePage(context.page)
+    context.page = context
 
-@when(u'jag trycker på knappen <knapp>')
-def step_impl(context):
-    raise StepNotImplementedError(u'When jag trycker på knappen <knapp>')
+@when(u'jag trycker på knappen <button>')
+def step_impl(context, button):
+    context.page.get_by_test_id(button).click()
 
 @then('bör jag se en lista med {count:d} böcker')
 def step_impl(context, count):
