@@ -22,7 +22,7 @@ En kund s'ger att de vill ha en ny funktion. T.ex. kan denna funktion vara att m
 
 ### Svar:
 
-- [ ] TODO: Skriv ett bra svar
+Behaivour Driven Development 'r en utvecklingstyp d'r man anv'nder sig av skriftspr[k f;r att beskriva tester. Det betyder att ist'llet f;r att skriva t.ex. `assert a == b` s[ beskriver man hur man vill att programmet ska fungera (eller en del av programmet). Detta g;r att en person som inte 'r utvecklare kan f;rst[ vad testet g;r, det 'r ;ver enklare att resonera ;ver vad testet g;r. T.ex. s[ kan man anv'nda BDD n'r man utvecklar webbsidor och man beh;ver navigera runt mellan sidorna och klicka p[ olika saker och verifiera att det ser r'tt ut och att sidan inneh[ller det man t'nker att den ska inneh[lla. Om man j'mf;r det mot TDD s[ kan man s'ga att TDD ofta testar att koden fungerar och BDD testar att den som man vill kunna g;ra kan man g;ra. Om man skulle simulera att g[ och handla s[ hade TDD sett till att det g[r att komma in i aff'ren, v'lja olika varor och sedan att betalning fungerar. Vid BDD s[ hade man skapat olika scenario som skulle kunna intr'ffa, BDD beskrivs med acceptans kriterier `Given`, `When`, `Then`. `Given` beskriver f;ruts'ttningarna t.ex. att jag 'r p[ webbsidan och 'r inloggad som en anv'ndare, `When` beskriver det jag g;r p[ webbsidan t.ex. att jag g[r till s;kf'ltet och s;ker efter 'Strumpor'. `Then` 'r det f;rv'ntade resultatet utifr[n de tv[ tidigare stegen, t.ex. att det syns en lista ;ver 'Strumpor' och att listan inneh[ller 5 resultat. 
 
 ## Tänk dig att du skulle göra en webbsida som liknar Läslistan, både frontend och backend. Om du fick välja förutsättningslöst, vilka sorters tester skulle du vilja använda? Motivera ditt val.
 
