@@ -12,7 +12,8 @@ def step_impl(context, button):
 
 @then('bör jag se en lista med {count:d} böcker')
 def step_impl(context, count):
-    books = context.reading_list_page.get_initial_books()
+    initial_state = context.initial_state
+    books = initial_state.get_books()
     c = 0
     for book in books:
         locator = context.reading_list_page.get_by_test_id(book)
