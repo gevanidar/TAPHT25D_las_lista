@@ -58,8 +58,7 @@ def step_impl(context):
 @then(u'ska en raden visuellt förtydligas')
 def step_impl(context):
     book = get_first_book(context)
-    main_section = context.reading_list_page.page.locator('catalog')
-    row = main_section.locator('book').nth(1)
+    row = context.reading_list_page.get_by_test_id(book)
     color = row.evaluate("el => window.getComputedStyle(el).backgroundColor")
     print(f'{row=}\n{color=}')
     assert None is not None
