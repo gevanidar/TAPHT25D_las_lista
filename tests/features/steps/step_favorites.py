@@ -57,9 +57,10 @@ def step_impl(context):
 
 @then(u'ska en raden visuellt förtydligas')
 def step_impl(context):
-    book = get_first_book(context)
-    row = context.reading_list_page.get_by_test_id(book)
+    row = context.reading_list_page.page.locator('div.catalog .book')#.filter(has_text=target_text)
+
     color = row.evaluate("el => window.getComputedStyle(el).backgroundColor")
-    print(f'{row=}\n{color=}')
-    assert None is not None
+    print("{color=}")
+
+    assert color != "rgba(0, 0, 0, 0)", "Incorrect selection of element which has hover effect."
     
