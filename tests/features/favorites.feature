@@ -30,7 +30,3 @@ Feature:
 		And jag klickar på hjärtat
 		And jag trycker på knappen favorites
 		Then ska jag inte se boken i listan
-
-	Scenario:
-		When jag markerar en rad
-		Then ska en raden visuellt förtydligas

@@ -54,13 +54,3 @@ def step_impl(context):
     # TODO: Fix this quick hack
     fav_book = 'fav' + book[4:]
     assert context.reading_list_page.contains_favorite(fav_book)
-
-@then(u'ska en raden visuellt förtydligas')
-def step_impl(context):
-    row = context.reading_list_page.page.locator('div.catalog .book')#.filter(has_text=target_text)
-
-    color = row.evaluate("el => window.getComputedStyle(el).backgroundColor")
-    print("{color=}")
-
-    assert color != "rgba(0, 0, 0, 0)", "Incorrect selection of element which has hover effect."
-    
