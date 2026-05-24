@@ -19,7 +19,7 @@ class ReadingListPage:
             locator.click()
 
     def toggle_mark_favorite(self, test_id):
-        row = self.click_button_with_test_id(test_id)
+        row = self.get_by_test_id(test_id)
         star = row.locator('.star')
         star_selected = row.locator('.star-selected')
         if star:
