@@ -20,13 +20,14 @@ class ReadingListPage:
 
     def toggle_mark_favorite(self, test_id):
         row = self.get_by_test_id(test_id)
-        star = row.locator('div.star')
-        star_selected = row.locator('div.star-selected')
-        print(f"{test_id=}\n{row=}\n{star=}\n{star_selected=}")
-        if star:
-            star.click()
-        elif star_selected:
-            star_selected.click()
+        row.click()
+       # star = row.locator('div.star')
+       # star_selected = row.locator('div.star-selected')
+       # print(f"{test_id=}\n{row=}\n{star=}\n{star_selected=}")
+       # if star:
+       #     star.click()
+       # elif star_selected:
+       #     star_selected.click()
 
     def get_by_test_id(self, test_id):
         return self.page.get_by_test_id(test_id)
