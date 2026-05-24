@@ -53,3 +53,7 @@ def step_impl(context):
     # TODO: Fix this quick hack
     fav_book = 'fav' + book[4:]
     assert context.reading_list_page.contains_favorite(fav_book)
+
+@then(u'ska en raden visuellt förtydligas')
+def step_impl(context):
+		raise StepNotImplementedError(u'Then ska en raden visuellt förtydligas')
