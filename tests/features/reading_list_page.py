@@ -19,7 +19,13 @@ class ReadingListPage:
             locator.click()
 
     def toggle_mark_favorite(self, test_id):
-        self.click_button_with_test_id(test_id)
+        row = self.click_button_with_test_id(test_id)
+        star = row.locator('.star')
+        star_selected = row.locator('.star-selected')
+        if star:
+            star.click()
+        elif star_selected:
+            star_selected.click()
 
     def get_by_test_id(self, test_id):
         return self.page.get_by_test_id(test_id)
@@ -31,16 +37,8 @@ class ReadingListPage:
         return self.page.get_by_text(text)
 
     def is_favorite_marked(self, test_id):
-        locator = self.get_by_test_id(test_id)
-        print(f"{locator=}")
-
-        star_selected = self.get_by_text('star-selected')
-
-
-        #star_selected = locator.get_by_text('star-selected')
-        print(f"{star_selected=}")
-        #print(f"{vars(star_selected)=}")
-        #print(f"{dir(star_selected)=}")
+        row = self.get_by_test_id(test_id)
+        star_selected = row.locator('.star-selected')
 
         return star_selected is not None
 
