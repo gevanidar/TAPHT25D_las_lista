@@ -32,7 +32,7 @@ class ReadingListPage:
 
     def is_favorite_marked(self, test_id):
         locator = self.get_by_test_id(test_id)
-        #print(f"{locator=}")
+        print(f"{locator=}")
         star_selected = locator.get_by_text('star-selected')
         print(f"{star_selected=}")
         print(f"{vars(star_selected)=}")
