@@ -34,13 +34,14 @@ class ReadingListPage:
         locator = self.get_by_test_id(test_id)
         print(f"{locator=}")
 
-        return locator.has('div.star-selected')
+        star_selected = locator.locator("has(div.star-selected)")
 
         #star_selected = locator.get_by_text('star-selected')
         #print(f"{star_selected=}")
         #print(f"{vars(star_selected)=}")
         #print(f"{dir(star_selected)=}")
-        #return star_selected is not None
+
+        return star_selected is not None
 
     def get_initial_books(self):
         book_0 ="star-Ormar på ett plan: En Python-berättelse"
