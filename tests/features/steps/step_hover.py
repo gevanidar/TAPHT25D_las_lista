@@ -31,10 +31,6 @@ def step_impl(context):
     print(f"{original_color=}")
 
     assert color != "rgba(0, 0, 0, 0)", "Incorrect selection of element which has hover effect."
-    assert color != "rgba(229, 190, 149)", "Incorrect hover color for first row"
+    assert color != original_color, "The hover had no effect on color"
+    assert color == "rgba(229, 190, 149)", "Incorrect hover color for first row"
     
-    assert True == False
-   # --cat1: rgb(222, 219, 207);
-   # --cat2: rgb(201, 198, 187); 
-   # --cat3: rgb(244, 207, 168);
-   # --cat4: rgb(229, 190, 149);
