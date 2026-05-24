@@ -23,14 +23,16 @@ def step_impl(context):
     original_colors = []
     for n in range(2):
         row = rows.nth(n)
-        row_original_color = row.evaluate("el => window.getComputedStyle(el).backgroundColor")
+        original_color = row.evaluate("el => window.getComputedStyle(el).backgroundColor")
         if not original_colors: 
             original_colors = []
+        original_colors.append(original_color)
         row.hover()
         page.wait_for_timeout(500)
         color = row.evaluate("el => window.getComputedStyle(el).backgroundColor")
         if not colors: 
             colors = []
+        colors.append(color)
     context.original_colors = row_original_colors
     context.colors = colors
 
