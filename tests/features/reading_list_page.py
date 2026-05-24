@@ -34,7 +34,7 @@ class ReadingListPage:
     def is_favorite_marked(self, test_id):
         row = self.get_by_test_id(test_id)
         div = row.locator('div')
-        return div.to_have_class(/star-selected/)
+        return div.to_have_class('star-selected')
 
     def get_initial_books(self):
         book_0 ="star-Ormar på ett plan: En Python-berättelse"
