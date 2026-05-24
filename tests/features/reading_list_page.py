@@ -22,7 +22,7 @@ class ReadingListPage:
         row = self.get_by_test_id(test_id)
         star = row.locator('.star')
         star_selected = row.locator('.star-selected')
-        print("{test_id=}\n{row=}\n{star=}\n{star_selected=}")
+        print(f"{test_id=}\n{row=}\n{star=}\n{star_selected=}")
         if star:
             star.click()
         elif star_selected:
