@@ -58,6 +58,6 @@ def step_impl(context):
 def step_impl(context):
     book = get_first_book(context)
     locator = context.reading_list_page.get_by_test_id(book)
-    clazz = locator.get_attribute("class")
-    print(f"{clazz=}")
-    assert 'hover' in clazz
+    color = locator.evaluate('el => window.getComputedStyle(el).backgroundColor')
+    print(f"{color=}")
+    assert color is None
