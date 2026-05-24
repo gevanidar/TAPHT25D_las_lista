@@ -34,6 +34,7 @@ class ReadingListPage:
     def is_favorite_marked(self, test_id):
         row = self.get_by_test_id(test_id)
         clazz = row.get_attribute("class")
+        print(f'{row=}\n{clazz=}')
         return clazz == 'star-selected'
 
     def get_initial_books(self):
