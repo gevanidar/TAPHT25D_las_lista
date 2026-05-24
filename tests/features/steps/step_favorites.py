@@ -17,6 +17,7 @@ def step_impl(context, page):
     locator.get_by_text(page)
     assert locator is not None
 
+# TODO: This is actually not the row, this is the heart of the first row.
 @when(u'jag markerar en rad')
 def step_impl(context):
     book = get_first_book(context)
@@ -57,7 +58,8 @@ def step_impl(context):
 @then(u'ska en raden visuellt förtydligas')
 def step_impl(context):
     book = get_first_book(context)
-    locator = context.reading_list_page.get_by_test_id(book)
-    color = locator.evaluate('el => window.getComputedStyle(el).backgroundColor')
-    print(f"{color=}")
-    assert color is None
+    main_section = context.reading_list_page.page.locator('main')
+    row = main_section.locator('.star').nth(1)
+    print(f'{row=}')
+    assert None is not None
+    
