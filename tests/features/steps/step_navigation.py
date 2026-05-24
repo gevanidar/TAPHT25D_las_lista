@@ -12,20 +12,7 @@ def step_impl(context, button):
 
 @then('bör jag se en lista med {count:d} böcker')
 def step_impl(context, count):
-    book_0 ="star-Ormar på ett plan: En Python-berättelse"
-    book_1 ="star-The Pragmatic Procrastinator"
-    book_2 ="star-Python för folk som hatar ormar"
-    book_3 ="star-Why Your Tests Are Lying to You"
-    book_4 ="star-Playwright: Click It Till You Make It"
-    book_5 ="star-Git Blame and Other Ways to Lose Friends"
-    book_6 ="star-Learn Python in 21 Years"
-    book_7 ="star-Agile Is a Feeling"
-    book_8 ="star-Playwright: Waiting for Selectors"
-    book_9 ="star-Stack Overflow: A Love Story"
-    book_10 ="star-My First Regex (And Last)"
-    book_11 ="star-The Developer Who Knew Nothing"
-    book_12 ="star-The Bugs are Coming"
-    books = [book_0,book_1 ,book_2 ,book_3 ,book_4 ,book_5 ,book_6 ,book_7 ,book_8 ,book_9 ,book_10,book_11,book_12]
+    books = context.reading_list_page.get_initial_books()
     c = 0
     for book in books:
         locator = context.reading_list_page.get_by_test_id(book)
