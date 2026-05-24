@@ -25,8 +25,9 @@ def after_scenario(context, scenario):
 
 # Runs after all scenarios have finished - clean up
 def after_all(context):
-    page = context.reading_list_page.page
-    if page.browser:
+    browser = context.browser
+    if browser:
         browser.close()
-    if page.playwright:
-        playwright.stop()
+    pw = context.playwright
+    if pw:
+        pw.stop()
