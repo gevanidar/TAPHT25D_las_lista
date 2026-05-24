@@ -8,7 +8,7 @@ def step_impl(context):
 
 @when(u'jag trycker på knappen {button}')
 def step_impl(context, button):
-    locator = context.reading_list_page.page.get_by_test_id(button)
+    locator = context.reading_list_page.get_by_test_id(button)
     if not locator.is_disabled():
         locator.click()
 
@@ -30,7 +30,7 @@ def step_impl(context, count):
     books = [book_0,book_1 ,book_2 ,book_3 ,book_4 ,book_5 ,book_6 ,book_7 ,book_8 ,book_9 ,book_10,book_11,book_12]
     c = 0
     for book in books:
-        locator = context.reading_list_page.page.get_by_test_id(book)
+        locator = context.reading_list_page.get_by_test_id(book)
         if locator:
             c += 1
     assert c == count
@@ -44,71 +44,11 @@ def step_impl(context, div_class):
     
 @then('bör jag se en label {label}')
 def step_impl(context, label):
-    locator = context.reading_list_page.page.get_by_label(label)
+    locator = context.reading_list_page.get_by_label(label)
     assert locator is not None
 
 
 @then('bör jag se en text {text}')
 def step_impl(context, text):
-    locator = context.reading_list_page.page.get_by_text(text)
+    locator = context.reading_list_page.get_by_text(text)
     assert locator is not None
-
-
-# Lista
-# <div class="catalog">
-# <p>
-# Sidan för dig som gillar att läsa. Välj dina favoriter. </p>
-# <div class="book">
-# <div data-testid="star-Ormar på ett plan: En Python-berättelse" class="star" role="button">
-# ❤️</div>
-# "Ormar på ett plan: En Python-berättelse", Guido van Rossum</div>
-# <div class="book">
-# <div data-testid="star-The Pragmatic Procrastinator" class="star" role="button">
-# ❤️</div>
-# "The Pragmatic Procrastinator", Dave Thomasson</div>
-# <div class="book">
-# <div data-testid="star-Python för folk som hatar ormar" class="star" role="button">
-# ❤️</div>
-# "Python för folk som hatar ormar", Monty Pythonsson</div>
-# <div class="book">
-# <div data-testid="star-Why Your Tests Are Lying to You" class="star" role="button">
-# ❤️</div>
-# "Why Your Tests Are Lying to You", Kent Backdoor</div>
-# <div class="book">
-# <div data-testid="star-Playwright: Click It Till You Make It" class="star" role="button">
-# ❤️</div>
-# "Playwright: Click It Till You Make It", Microslop Browserdóttir</div>
-# <div class="book">
-# <div data-testid="star-Git Blame and Other Ways to Lose Friends" class="star" role="button">
-# ❤️</div>
-# "Git Blame and Other Ways to Lose Friends", Linus Torvalds</div>
-# <div class="book">
-# <div data-testid="star-Learn Python in 21 Years" class="star" role="button">
-# ❤️</div>
-# "Learn Python in 21 Years", Sams Teachyourself</div>
-# <div class="book">
-# <div data-testid="star-Agile Is a Feeling" class="star" role="button">
-# ❤️</div>
-# "Agile Is a Feeling", Jeff Sutherland</div>
-# <div class="book">
-# <div data-testid="star-Playwright: Waiting for Selectors" class="star" role="button">
-# ❤️</div>
-# "Playwright: Waiting for Selectors", Samuel Barclay Beckett</div>
-# <div class="book">
-# <div data-testid="star-Stack Overflow: A Love Story" class="star" role="button">
-# ❤️</div>
-# "Stack Overflow: A Love Story", Copy Pasta</div>
-# <div class="book">
-# <div data-testid="star-My First Regex (And Last)" class="star" role="button">
-# ❤️</div>
-# "My First Regex (And Last)", Larry Wallström</div>
-# <div class="book">
-# <div data-testid="star-The Developer Who Knew Nothing" class="star" role="button">
-# ❤️</div>
-# "The Developer Who Knew Nothing", George R.R. Martin</div>
-# <div class="book">
-# <div data-testid="star-The Bugs are Coming" class="star" role="button">
-# ❤️</div>
-# "The Bugs are Coming", George R.R. Martin</div>
-# </div>
- 
