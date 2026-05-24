@@ -19,30 +19,34 @@ def step_impl(context):
     rows = page.locator('div.catalog .book')
 
     n = 0 
+    colors = []
+    original_colors = []
     for n in range(2):
         row = rows.nth(n)
         row_original_color = row.evaluate("el => window.getComputedStyle(el).backgroundColor")
-        if not context.row_original_colors: 
-            context.row_original_colors = []
-        context.row_original_colors[n] = row_original_color
+        if not original_colors: 
+            original_colors = []
         row.hover()
         page.wait_for_timeout(500)
         color = row.evaluate("el => window.getComputedStyle(el).backgroundColor")
-        if not context.colors: 
-            context.colors = []
-        context.colors[n] = color
+        if not colors: 
+            colors = []
+    context.original_colors = row_original_colors
+    context.colors = colors
 
 @then(u'ska en raden visuellt förtydligas')
 def step_impl(context):
-    color = context.colors[0]
-    original_color = context.row_original_color
+    n = 0
+    color = context.colors[n]
+    original_color = context.original_colors[n]
 
     assert color != "rgb(0, 0, 0, 0)", "Incorrect selection of element which has hover effect."
     assert color != original_color, "The hover had no effect on color"
     assert color == "rgb(229, 190, 149)", "Incorrect hover color for first row"
-    
-    color = context.colors[1]
-    original_color = context.row_original_color
+
+    n = 1
+    color = context.colors[n]
+    original_color = context.original_colors[n]
 
     assert color != "rgb(0, 0, 0, 0)", "Incorrect selection of element which has hover effect."
     assert color != original_color, "The hover had no effect on color"
