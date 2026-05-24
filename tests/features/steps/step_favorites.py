@@ -31,7 +31,7 @@ def step_impl(context):
 def step_impl(context):
     book = get_first_book(context)
     is_favorite = context.reading_list_page.is_favorite_marked(book)
-    print("{is_favorite=}")
+    print(f"{is_favorite=} should be")
     assert is_favorite
     assert True == False
 
@@ -39,5 +39,5 @@ def step_impl(context):
 def step_impl(context):
     book = get_first_book(context)
     is_favorite = context.reading_list_page.is_favorite_marked(book)
-    print("{is_favorite=}")
+    print(f"{is_favorite=} should not be")
     assert not is_favorite
