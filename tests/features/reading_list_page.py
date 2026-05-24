@@ -16,5 +16,11 @@ class ReadingListPage:
     def mark_as_favorite(self, result_index):
         raise NotImplementedError
 
-    def go_to_via_button(self, button_name):
-        raise NotImplementedError
+    def get_by_test_id(self, test_id):
+        return self.page.get_by_test_id(test_id)
+
+    def get_by_label(self, label):
+        return self.page.get_by_label(label)
+
+    def get_by_text(self, text):
+        return self.page.get_by_text(text)
