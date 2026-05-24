@@ -15,11 +15,13 @@ def step_impl(context):
     #book = get_first_book(context)
     #locator = context.reading_list_page.get_by_test_id(book)
 
-    row = context.reading_list_page.page.locator('div.catalog .book')
+    page = context.reading_list_page.page
+    row = page.locator('div.catalog .book')
     first = row.nth(0)
     first_original_color = first.evaluate("el => window.getComputedStyle(el).backgroundColor")
     context.first_original_color = first_original_color
     first.hover()
+    page.wait_for_timeout(500)
     first_color = first.evaluate("el => window.getComputedStyle(el).backgroundColor")
     context.first_color = first_color
 
