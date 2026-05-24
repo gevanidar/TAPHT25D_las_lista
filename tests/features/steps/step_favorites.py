@@ -30,4 +30,9 @@ def step_impl(context):
 @then(u'ska boken favoritmarkeras')
 def step_impl(context):
     book = get_first_book(context)
-    locator = context.reading_list_page.is_favorite_marked(book)
+    assert context.reading_list_page.is_favorite_marked(book)
+
+@then(u'ska boken avfavoritmarkeras')
+def step_impl(context):
+    book = get_first_book(context)
+    assert not context.reading_list_page.is_favorite_marked(book)
