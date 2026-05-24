@@ -22,7 +22,7 @@ def step_impl(context):
     first = row.first 
 
     color = first.evaluate("el => window.getComputedStyle(el).backgroundColor")
-    print("{row=}\n{first=}\n{color=}")
+    print(f"{row=}\n{first=}\n{color=}")
 
     assert color != "rgba(0, 0, 0, 0)", "Incorrect selection of element which has hover effect."
     
