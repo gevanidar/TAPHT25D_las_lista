@@ -8,7 +8,7 @@ def step_impl(context):
 
 @when(u'jag trycker på knappen {button}')
 def step_impl(context, button):
-    locator = context.page.get_by_test_id(button)
+    locator = context.reading_list_page.page.get_by_test_id(button)
     if not locator.is_disabled():
         locator.click()
 
@@ -30,27 +30,27 @@ def step_impl(context, count):
     books = [book_0,book_1 ,book_2 ,book_3 ,book_4 ,book_5 ,book_6 ,book_7 ,book_8 ,book_9 ,book_10,book_11,book_12]
     c = 0
     for book in books:
-        locator = context.page.get_by_test_id(book)
+        locator = context.reading_list_page.page.get_by_test_id(book)
         if locator:
             c += 1
     assert c == count
 
 @then(u'bör jag se en div med {div_class}')
 def step_impl(context, div_class):
-    locator = context.page.locator('main')
+    locator = context.reading_list_page.page.locator('main')
     assert locator is not None
     locator.get_by_text(div_class)
     assert locator is not None
     
 @then('bör jag se en label {label}')
 def step_impl(context, label):
-    locator = context.page.get_by_label(label)
+    locator = context.reading_list_page.page.get_by_label(label)
     assert locator is not None
 
 
 @then('bör jag se en text {text}')
 def step_impl(context, text):
-    locator = context.page.get_by_text(text)
+    locator = context.reading_list_page.page.get_by_text(text)
     assert locator is not None
 
 
