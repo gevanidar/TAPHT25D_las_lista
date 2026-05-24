@@ -42,8 +42,14 @@ def step_impl(context):
 
 @then(u'ska jag se boken i listan')
 def step_impl(context):
-    raise StepNotImplementedError(u'Then ska jag se boken i listan')
+    book = get_first_book(context)
+    # TODO: Fix this quick hack
+    fav_book = 'fav' + book[4:]
+    context.reading_list_page.contains_favorite(fav_book)
 
 @then(u'ska jag inte se boken i listan')
 def step_impl(context):
-    raise StepNotImplementedError(u'Then ska jag inte se boken i listan')
+    book = get_first_book(context)
+    # TODO: Fix this quick hack
+    fav_book = 'fav' + book[4:]
+    assert not context.reading_list_page.contains_favorite(fav_book)
