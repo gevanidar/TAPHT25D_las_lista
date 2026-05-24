@@ -1,5 +1,7 @@
 from playwright.sync_api import sync_playwright
 
+from reading_list_page.py import ReadingListPage
+
 # Runs before any scenarios
 def before_all(context):
     # Start Playwright and the browser - close it in after_all
@@ -11,19 +13,20 @@ def before_all(context):
 def before_scenario(context, scenario):
     # The scenario fixture is created from a feature file, we don't typically need it for anything.
     # Open a new page, to prevent cookies to leak between tests. Set default timeout to something appropriate. Close the page in after_scenario.
-    context.page = context.browser.new_page()
-    context.page.set_default_timeout(1000)
-    context.base_url = "https://tap-ht25-testverktyg.github.io/exam/"
-    context.page.goto(context.base_url)
+    page = context.browser.new_page()
+    reading_list_page = ReadingListPage(page)
+    context_reading_list_page = reading_list_page
 
 # Runs directly after each scenario - clean up to avoid memory leaks
 def after_scenario(context, scenario):
-    if context.page:
-        context.page.close()
+    page = context.reading_list_page
+    if page:
+        page.close()
 
 # Runs after all scenarios have finished - clean up
 def after_all(context):
-    if context.browser:
-        context.browser.close()
-    if context.playwright:
-        context.playwright.stop()
+    page = context.reading_list_page
+    if browser:
+        browser.close()
+    if playwright:
+        playwright.stop()
