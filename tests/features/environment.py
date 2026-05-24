@@ -1,6 +1,6 @@
 from playwright.sync_api import sync_playwright
 
-from reading_list_page.py import ReadingListPage
+from reading_list_page import ReadingListPage
 
 # Runs before any scenarios
 def before_all(context):
@@ -15,7 +15,7 @@ def before_scenario(context, scenario):
     # Open a new page, to prevent cookies to leak between tests. Set default timeout to something appropriate. Close the page in after_scenario.
     page = context.browser.new_page()
     reading_list_page = ReadingListPage(page)
-    context_reading_list_page = reading_list_page
+    context.reading_list_page = reading_list_page
 
 # Runs directly after each scenario - clean up to avoid memory leaks
 def after_scenario(context, scenario):

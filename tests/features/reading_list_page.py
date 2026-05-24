@@ -1,4 +1,4 @@
-class SearchPage:
+class ReadingListPage:
     def __init__(self, page):
         self.page = page
         self.page.set_default_timeout(1000)
