@@ -23,11 +23,11 @@ def step_impl(context):
 
 @when('jag klickar på hjärtat')
 def step_impl(context):
-    book = get_first_book(contest)
+    book = get_first_book(context)
     locator = context.reading_list_page.get_by_test_id(book)
     locator.click()
 
 @then(u'ska boken favoritmarkeras')
 def step_impl(context):
-    book = get_first_book(contest)
+    book = get_first_book(context)
     locator = context.reading_list_page.is_favorite_marked(book)

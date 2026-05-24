@@ -17,7 +17,7 @@ def before_scenario(context, scenario):
     page = context.browser.new_page()
     reading_list_page = ReadingListPage(page)
     context.reading_list_page = reading_list_page
-    contest.initial_state = InitialState
+    context.initial_state = InitialState
 
 # Runs directly after each scenario - clean up to avoid memory leaks
 def after_scenario(context, scenario):
