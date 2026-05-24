@@ -34,7 +34,8 @@ class ReadingListPage:
         locator = self.get_by_test_id(test_id)
         print(f"{locator=}")
 
-        star_selected = locator.locator("has(div.star-selected)")
+        star_selected = self.get_by_text('star-selected')
+
 
         #star_selected = locator.get_by_text('star-selected')
         #print(f"{star_selected=}")
