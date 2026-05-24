@@ -35,7 +35,8 @@ class ReadingListPage:
         row = self.get_by_test_id(test_id)
         div = row.locator('div')
         print(f'{div=}')
-        return div.to_have_class('star-selected')
+        clazz = div.get_attributes("class")
+        return class == 'star-selected'
 
     def get_initial_books(self):
         book_0 ="star-Ormar på ett plan: En Python-berättelse"
