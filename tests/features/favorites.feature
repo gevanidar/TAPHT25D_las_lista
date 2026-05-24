@@ -1,13 +1,13 @@
 Feature:
 	Som en Användare,
-	vill jag kunna favoritmarkera b;cker,
+	vill jag kunna favoritmarkera böcker,
 	så jag enklare kan hitta dem.
 
 	Background:
-		Given att jag 'r p[ hemsidan
-		And att jag st[r p[ sidan katalog
+		Given att jag är på hemsidan
+		And att jag står på sidan katalog
 	
 	Scenario:
 		When jag markerar en rad
-		And klickar p[ hj'rtat till h;ger
+		And klickar på hjärtat till höger
 		Then ska boken favoritmarkeras
