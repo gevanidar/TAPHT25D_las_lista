@@ -60,6 +60,7 @@ def step_impl(context):
     book = get_first_book(context)
     main_section = context.reading_list_page.page.locator('main')
     row = main_section.locator('.star').nth(1)
-    print(f'{row=}')
+    color = row.evaluate("el => window.getComputedStyle(el).backgroundColor")
+    print(f'{row=}\n{color=}')
     assert None is not None
     
