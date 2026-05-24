@@ -52,4 +52,4 @@ def step_impl(context):
     book = get_first_book(context)
     # TODO: Fix this quick hack
     fav_book = 'fav' + book[4:]
-    assert not context.reading_list_page.contains_favorite(fav_book)
+    assert context.reading_list_page.contains_favorite(fav_book)
