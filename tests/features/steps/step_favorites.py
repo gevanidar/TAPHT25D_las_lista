@@ -25,6 +25,7 @@ def step_impl(context):
 def step_impl(context):
     book = get_first_book(context)
     locator = context.reading_list_page.get_by_test_id(book)
+    # TODO: This might be the incorrect one.
     locator.click()
 
 @then(u'ska boken favoritmarkeras')
