@@ -36,7 +36,7 @@ class ReadingListPage:
         div = row.locator('div')
         print(f'{div=}')
         clazz = div.get_attributes("class")
-        return class == 'star-selected'
+        return clazz == 'star-selected'
 
     def get_initial_books(self):
         book_0 ="star-Ormar på ett plan: En Python-berättelse"
