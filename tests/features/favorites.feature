@@ -11,10 +11,3 @@ Feature:
 		When jag markerar en rad
 		And klickar p[ hj'rtat till h;ger
 		Then ska boken favoritmarkeras
-
-
-
-
-		<div data-testid="star-Ormar på ett plan: En Python-berättelse" class="star" role="button">❤️</div>
-		<div data-testid="star-Ormar på ett plan: En Python-berättelse" class="star-selected" role="button">❤️</div>
-
