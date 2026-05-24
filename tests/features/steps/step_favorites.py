@@ -2,10 +2,6 @@ from behave import when, then
 
 from behave.api.pending_step import StepNotImplementedError
 
-@given(u'att jag är på hemsidan')
-def step_impl(context):
-    pass
-
 @given(u'att jag står på sidan {page}')
 def step_impl(context, page):
     locator = context.reading_list_page.page.locator('main')
