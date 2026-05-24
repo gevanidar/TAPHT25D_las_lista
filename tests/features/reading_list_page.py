@@ -35,7 +35,7 @@ class ReadingListPage:
         row = self.get_by_test_id(test_id)
         div = row.locator('div')
         print(f'{div=}')
-        clazz = div.get_attributes("class")
+        clazz = div.get_attribute("class")
         return clazz == 'star-selected'
 
     def get_initial_books(self):
