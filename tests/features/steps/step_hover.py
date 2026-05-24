@@ -25,4 +25,6 @@ def step_impl(context):
     print("{color=}")
 
     assert color != "rgba(0, 0, 0, 0)", "Incorrect selection of element which has hover effect."
+    # Testing print output
+    assert True == False
     
