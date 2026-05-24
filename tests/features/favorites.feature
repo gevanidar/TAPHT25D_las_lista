@@ -11,3 +11,9 @@ Feature:
 		When jag markerar en rad
 		And jag klickar på hjärtat
 		Then ska boken favoritmarkeras
+
+	Scenario:
+		When jag markerar en rad
+		And jag klickar på hjärtat
+		And jag klickar på hjärtat
+		Then ska boken avfavoritmarkeras
