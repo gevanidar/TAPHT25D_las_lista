@@ -21,13 +21,6 @@ class ReadingListPage:
     def toggle_mark_favorite(self, test_id):
         row = self.get_by_test_id(test_id)
         row.click()
-       # star = row.locator('div.star')
-       # star_selected = row.locator('div.star-selected')
-       # print(f"{test_id=}\n{row=}\n{star=}\n{star_selected=}")
-       # if star:
-       #     star.click()
-       # elif star_selected:
-       #     star_selected.click()
 
     def get_by_test_id(self, test_id):
         return self.page.get_by_test_id(test_id)
@@ -41,8 +34,10 @@ class ReadingListPage:
     def is_favorite_marked(self, test_id):
         row = self.get_by_test_id(test_id)
         star_selected = row.locator('.star-selected')
-
-        return star_selected is not None
+        star = row.locator('.star')
+        if not star:
+            return star_selected is not None
+        return star is not None
 
     def get_initial_books(self):
         book_0 ="star-Ormar på ett plan: En Python-berättelse"
