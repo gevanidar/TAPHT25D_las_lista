@@ -20,7 +20,7 @@ def step_impl(context):
     locator.click()
 
 @then(u'ska boken favoritmarkeras')
-def step_impl(context:
+def step_impl(context):
     locator = context.reading_list_page.is_favorite_marked('star-Ormar på ett plan: En Python-berättelse')
 
 
