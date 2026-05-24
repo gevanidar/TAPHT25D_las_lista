@@ -34,8 +34,12 @@ class ReadingListPage:
     def is_favorite_marked(self, test_id):
         row = self.get_by_test_id(test_id)
         div = row.locator('div')
+        div_select = row.locator('div.select')
+        select = row.locator('.select')
         print(f'{row.count()=}')
         print(f'{div.count()=}')
+        print(f'{div_select.count()=}')
+        print(f'{select.count()=}')
         clazz = div.get_attribute("class")
         return clazz == 'star-selected'
 
