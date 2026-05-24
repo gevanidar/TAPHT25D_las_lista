@@ -59,4 +59,5 @@ def step_impl(context):
     book = get_first_book(context)
     locator = context.reading_list_page.get_by_test_id(book)
     clazz = locator.get_attribute("class")
-    print(f'{clazz=}")
+    print(f"{clazz=}")
+    assert 'hover' in clazz
