@@ -1,9 +1,23 @@
 
-- Katalog
+- Navigering
 
 Som en användare,
 vill jag kunna klicka på en knapp katalog,
 så jag kan se all böcker som finns.
+
+Som en användare,
+vill jag kunna se en lista över alla böcker som jag favoritmarkerat,
+så jag kan få en överblick av bara de böckerna jag gillar mest. 
+
+Som en användare,
+vill jag kunna klicka på en knapp Lägg till bok,
+så jag kan lägga till en bok som inte finns i katalogen över alla bäcker.
+
+Som en användare,
+vill jag kunna klicka på en knapp Statistik
+så jag kan se statistik över löslistan.
+
+- Mina böcker
 
 Som en Användare,
 vill jag kunna klicka på en knapp mina böcker,
@@ -21,27 +35,13 @@ Som en användare,
 vill jag få en hint om vad som händer när jag tycker på en rad,
 så jag kan få en visuell feedback av hur jag favoritmarkerar en bok utan att favoritmarkera boken. 
 
-- Mina böcker
-
-Som en användare,
-vill jag kunna se en lista över alla böcker som jag favoritmarkerat,
-så jag kan 
-
 - Lägg till bok
-
-Som en användare,
-vill jag kunna klicka på en knapp Lägg till bok,
-så jag kan lägga till en bok som inte finns i katalogen över alla bäcker.
 
 Som en användare,
 vill jag kunna lägga till böcker i listan,
 så jag kan se till att böcker som saknas i listan finns tillgängliga.
 
 - Statistik
-
-Som en användare,
-vill jag kunna klicka på en knapp Statistik
-så jag kan se statistik över löslistan.
 
 Som en användare,
 vill jag kunna se statistik över antalet böcker,
@@ -56,7 +56,6 @@ så jag kan vet hur många böcker som jag har favoritmarkerat.
 Som en användare,
 vill jag få visuell feedback om vilken rad jag har markerad,
 Så att jag kan se vilken rad jag har markerat.
-
 
 Som en administratör,
 Vill jag att både titel och författare ska vara tvingande för att skapa en bok,
