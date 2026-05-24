@@ -14,7 +14,7 @@ def step_impl(context):
     locator = context.reading_list_page.get_by_test_id('star-Ormar på ett plan: En Python-berättelse')
     locator.hover()
 
-@then('jag klickar på hjärtat')
+@when('jag klickar på hjärtat')
 def step_impl(context):
     locator = context.reading_list_page.get_by_test_id('star-Ormar på ett plan: En Python-berättelse')
     locator.click()
