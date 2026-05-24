@@ -13,6 +13,11 @@ class ReadingListPage:
     def navigate(self):
         self.page.goto(self.base_url)
 
+    def click_button_with_test_id(self, test_id):
+        locator = self.get_by_test_id(test_id)
+        if not locator.is_disabled():
+            locator.click()
+
     def mark_as_favorite(self, result_index):
         raise NotImplementedError
 
