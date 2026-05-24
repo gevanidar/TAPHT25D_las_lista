@@ -11,7 +11,8 @@ def step_impl(context, page):
 
 @when(u'jag markerar en rad')
 def step_impl(context):
-    raise StepNotImplementedError(u'jag markerar en rad')
+    locator = contest.reading_list_page.get_by_test_id('star-Ormar på ett plan: En Python-berättelse')
+    locator.hover()
 
 @then('klickar på hjärtat till höger')
 def step_impl(context):
