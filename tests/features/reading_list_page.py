@@ -19,9 +19,7 @@ class ReadingListPage:
             locator.click()
 
     def toggle_mark_favorite(self, test_id):
-        locator = self.get_by_test_id(test_id)
-        locator.click()
-
+        self.click_button_with_test_id(test_id)
 
     def get_by_test_id(self, test_id):
         return self.page.get_by_test_id(test_id)
