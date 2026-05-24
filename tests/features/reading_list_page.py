@@ -37,7 +37,7 @@ class ReadingListPage:
         #print(f"{star_selected=}")
         #print(f"{vars(star_selected)=}")
         #print(f"{dir(star_selected)=}")
-        return star_selected not None
+        return star_selected is not None
 
     def get_initial_books(self):
         book_0 ="star-Ormar på ett plan: En Python-berättelse"
