@@ -1,5 +1,5 @@
 class InitialState:
-    def __init__(self, page):
+    def __init__(self):
         book_0 ="star-Ormar på ett plan: En Python-berättelse"
         book_1 ="star-The Pragmatic Procrastinator"
         book_2 ="star-Python för folk som hatar ormar"
