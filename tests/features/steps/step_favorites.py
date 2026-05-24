@@ -1,5 +1,7 @@
 from behave import when, then
 
+from behave.api.pending_step import StepNotImplementedError
+
 def get_first_book(context):
     initial_state = context.initial_state
     books = initial_state.get_books()
@@ -37,3 +39,11 @@ def step_impl(context):
     book = get_first_book(context)
     is_favorite = context.reading_list_page.is_favorite_marked(book)
     assert not is_favorite
+
+@then(u'ska jag se boken i listan')
+def step_impl(context):
+    raise StepNotImplementedError(u'Then ska jag se boken i listan')
+
+@then(u'ska jag inte se boken i listan')
+def step_impl(context):
+    raise StepNotImplementedError(u'Then ska jag inte se boken i listan')
