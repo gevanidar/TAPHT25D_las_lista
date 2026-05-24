@@ -32,7 +32,10 @@ class ReadingListPage:
 
     def is_favorite_marked(self, test_id):
         locator = self.get_by_test_id(test_id)
-        return locator.get_by_text('star-selected')
+        print("{locator=}")
+        star_selected = locator.get_by_text('star-selected')
+        print("{star_selected}")
+        return star_selected 
 
     def get_initial_books(self):
         book_0 ="star-Ormar på ett plan: En Python-berättelse"
