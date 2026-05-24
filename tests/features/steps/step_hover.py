@@ -24,9 +24,9 @@ def step_impl(context):
 @then(u'ska en raden visuellt förtydligas')
 def step_impl(context):
     color = context.color
-    print(f"{row=}\n{first=}\n{color=}")
 
     assert color != "rgba(0, 0, 0, 0)", "Incorrect selection of element which has hover effect."
+    assert color != "rgba(229, 190, 149)", "Incorrect hover color for first row"
     
     assert True == False
    # --cat1: rgb(222, 219, 207);
