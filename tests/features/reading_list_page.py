@@ -38,5 +38,5 @@ class ReadingListPage:
 
     def contains_favorite(self, test_id):
         row = self.get_by_test_id(test_id)
-        return row not None
+        return row is not None
 
