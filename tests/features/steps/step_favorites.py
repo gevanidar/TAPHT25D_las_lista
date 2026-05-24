@@ -13,7 +13,6 @@ def step_impl(context, page):
     locator.get_by_text(page)
     assert locator is not None
 
-		And 
 @when(u'jag markerar en rad')
 def step_impl(context, button):
 
