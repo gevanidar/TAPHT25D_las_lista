@@ -9,5 +9,5 @@ Feature:
 	
 	Scenario:
 		When jag markerar en rad
-		And klickar på hjärtat till höger
+		And jag klickar på hjärtat
 		Then ska boken favoritmarkeras
