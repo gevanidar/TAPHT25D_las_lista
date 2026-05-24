@@ -16,15 +16,19 @@ def step_impl(context):
     #locator = context.reading_list_page.get_by_test_id(book)
 
     row = context.reading_list_page.page.locator('div.catalog .book')
-    first = row.first 
+    first = row.nth(0)
+    first_original_color = first.evaluate("el => window.getComputedStyle(el).backgroundColor")
+    context.first_original_color = first_original_color
     first.hover()
-    color = first.evaluate("el => window.getComputedStyle(el).backgroundColor")
-    context.color = color
+    first_color = first.evaluate("el => window.getComputedStyle(el).backgroundColor")
+    context.first_color = first_color
 
 @then(u'ska en raden visuellt förtydligas')
 def step_impl(context):
-    color = context.color
+    color = context.first_color
     print(f"{color=}")
+    original_color = context.first_original_color
+    print(f"{original_color=}")
 
     assert color != "rgba(0, 0, 0, 0)", "Incorrect selection of element which has hover effect."
     assert color != "rgba(229, 190, 149)", "Incorrect hover color for first row"
