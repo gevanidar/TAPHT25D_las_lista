@@ -14,16 +14,22 @@ def get_first_book(context):
 def step_impl(context):
     book = get_first_book(context)
     locator = context.reading_list_page.get_by_test_id(book)
+
     locator.hover()
+    row = context.reading_list_page.page.locator('div.catalog .book')
+    first = row.first 
+    color = first.evaluate("el => window.getComputedStyle(el).backgroundColor")
+    context.color = color
 
 @then(u'ska en raden visuellt förtydligas')
 def step_impl(context):
-    row = context.reading_list_page.page.locator('div.catalog .book')
-    first = row.first 
-
-    color = first.evaluate("el => window.getComputedStyle(el).backgroundColor")
+    color = context.color
     print(f"{row=}\n{first=}\n{color=}")
 
     assert color != "rgba(0, 0, 0, 0)", "Incorrect selection of element which has hover effect."
     
     assert True == False
+   # --cat1: rgb(222, 219, 207);
+   # --cat2: rgb(201, 198, 187); 
+   # --cat3: rgb(244, 207, 168);
+   # --cat4: rgb(229, 190, 149);
