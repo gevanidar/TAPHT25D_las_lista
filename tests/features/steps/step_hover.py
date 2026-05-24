@@ -33,7 +33,7 @@ def step_impl(context):
         if not colors: 
             colors = []
         colors.append(color)
-    context.original_colors = row_original_colors
+    context.original_colors = original_colors
     context.colors = colors
 
 @then(u'ska en raden visuellt förtydligas')
