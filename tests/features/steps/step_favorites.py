@@ -14,7 +14,8 @@ def step_impl(context, page):
     assert locator is not None
 
 @when(u'jag markerar en rad')
-def step_impl(context, button):
+def step_impl(context):
+    raise NotImplementedError
 
 @then('klickar på hjärtat till höger')
 def step_impl(context):
