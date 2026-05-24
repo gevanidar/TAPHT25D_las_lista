@@ -24,3 +24,7 @@ class ReadingListPage:
 
     def get_by_text(self, text):
         return self.page.get_by_text(text)
+
+    def is_favorite_marked(self, test_id):
+        locator = self.get_by_test_id(test_id)
+        return locator.get_by_text('star-selected')
