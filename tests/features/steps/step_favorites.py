@@ -30,7 +30,10 @@ def step_impl(context):
 @then(u'ska boken favoritmarkeras')
 def step_impl(context):
     book = get_first_book(context)
-    assert context.reading_list_page.is_favorite_marked(book)
+    is_favorite = context.reading_list_page.is_favorite_marked(book)
+    print("{is_favorite=}")
+    assert is_favorite
+    assert True == False
 
 @then(u'ska boken avfavoritmarkeras')
 def step_impl(context):
