@@ -34,7 +34,7 @@ class ReadingListPage:
         locator = self.get_by_test_id(test_id)
         print(f"{locator=}")
         star_selected = locator.get_by_text('star-selected')
-        print(f"{star_selected=}, and {star_selected.selector=}")
+        print(f"{star_selected=}")
         return star_selected 
 
     def get_initial_books(self):
