@@ -56,4 +56,7 @@ def step_impl(context):
 
 @then(u'ska en raden visuellt förtydligas')
 def step_impl(context):
-		raise StepNotImplementedError(u'Then ska en raden visuellt förtydligas')
+    book = get_first_book(context)
+    locator = context.reading_list_page.get_by_test_id(book)
+    clazz = locator.get_attribute("class")
+    print(f'{clazz=}")
