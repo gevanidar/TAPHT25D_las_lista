@@ -19,14 +19,14 @@ def before_scenario(context, scenario):
 
 # Runs directly after each scenario - clean up to avoid memory leaks
 def after_scenario(context, scenario):
-    page = context.reading_list_page
+    page = context.reading_list_page.page
     if page:
         page.close()
 
 # Runs after all scenarios have finished - clean up
 def after_all(context):
-    page = context.reading_list_page
-    if browser:
+    page = context.reading_list_page.page
+    if page.browser:
         browser.close()
-    if playwright:
+    if page.playwright:
         playwright.stop()
