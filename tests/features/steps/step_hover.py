@@ -16,23 +16,34 @@ def step_impl(context):
     #locator = context.reading_list_page.get_by_test_id(book)
 
     page = context.reading_list_page.page
-    row = page.locator('div.catalog .book')
-    first = row.nth(0)
-    first_original_color = first.evaluate("el => window.getComputedStyle(el).backgroundColor")
-    context.first_original_color = first_original_color
-    first.hover()
-    page.wait_for_timeout(500)
-    first_color = first.evaluate("el => window.getComputedStyle(el).backgroundColor")
-    context.first_color = first_color
+    rows = page.locator('div.catalog .book')
+
+    n = 0 
+    for n in range(2):
+        row = rows.nth(n)
+        row_original_color = first.evaluate("el => window.getComputedStyle(el).backgroundColor")
+        if not context.row_original_colors: 
+            context.row_original_colors = []
+        context.row_original_colors[n] = row_original_color
+        row.hover()
+        page.wait_for_timeout(500)
+        color = first.evaluate("el => window.getComputedStyle(el).backgroundColor")
+        if not context.colors: 
+            context.colors = []
+        context.colors[n] = color
 
 @then(u'ska en raden visuellt förtydligas')
 def step_impl(context):
-    color = context.first_color
-    print(f"{color=}")
-    original_color = context.first_original_color
-    print(f"{original_color=}")
+    color = context.colors[0]
+    original_color = context.row_original_color
 
     assert color != "rgb(0, 0, 0, 0)", "Incorrect selection of element which has hover effect."
     assert color != original_color, "The hover had no effect on color"
     assert color == "rgb(229, 190, 149)", "Incorrect hover color for first row"
     
+    color = context.colors[1]
+    original_color = context.row_original_color
+
+    assert color != "rgb(0, 0, 0, 0)", "Incorrect selection of element which has hover effect."
+    assert color != original_color, "The hover had no effect on color"
+    assert color == "rgb(201, 198, 187)", "Incorrect hover color for first row"
