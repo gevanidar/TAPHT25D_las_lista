@@ -24,9 +24,7 @@ def step_impl(context):
 @when('jag klickar på hjärtat')
 def step_impl(context):
     book = get_first_book(context)
-    locator = context.reading_list_page.get_by_test_id(book)
-    # TODO: This might be the incorrect one.
-    locator.click()
+    locator = context.reading_list_page.toggle_mark_favorite(book)
 
 @then(u'ska boken favoritmarkeras')
 def step_impl(context):

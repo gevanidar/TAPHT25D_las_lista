@@ -18,8 +18,10 @@ class ReadingListPage:
         if not locator.is_disabled():
             locator.click()
 
-    def mark_as_favorite(self, result_index):
-        raise NotImplementedError
+    def toggle_mark_favorite(self, test_id):
+        locator = self.get_by_test_id(test_id)
+        locator.click()
+
 
     def get_by_test_id(self, test_id):
         return self.page.get_by_test_id(test_id)
