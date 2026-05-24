@@ -12,12 +12,12 @@ def get_first_book(context):
 
 @when(u'jag hovrar över en rad')
 def step_impl(context):
-    book = get_first_book(context)
-    locator = context.reading_list_page.get_by_test_id(book)
+    #book = get_first_book(context)
+    #locator = context.reading_list_page.get_by_test_id(book)
 
-    locator.hover()
     row = context.reading_list_page.page.locator('div.catalog .book')
     first = row.first 
+    first.hover()
     color = first.evaluate("el => window.getComputedStyle(el).backgroundColor")
     context.color = color
 
