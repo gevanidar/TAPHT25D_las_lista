@@ -11,7 +11,7 @@ def step_impl(context, page):
 
 @when(u'jag markerar en rad')
 def step_impl(context):
-    raise NotImplementedError
+    raise StepNotImplementedError(u'jag markerar en rad')
 
 @then('klickar på hjärtat till höger')
 def step_impl(context):
