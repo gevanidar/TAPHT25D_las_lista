@@ -1,6 +1,7 @@
 from playwright.sync_api import sync_playwright
 
 from reading_list_page import ReadingListPage
+from initial_state import InitialState
 
 # Runs before any scenarios
 def before_all(context):
@@ -16,6 +17,7 @@ def before_scenario(context, scenario):
     page = context.browser.new_page()
     reading_list_page = ReadingListPage(page)
     context.reading_list_page = reading_list_page
+    contest.initial_state = InitialState
 
 # Runs directly after each scenario - clean up to avoid memory leaks
 def after_scenario(context, scenario):
