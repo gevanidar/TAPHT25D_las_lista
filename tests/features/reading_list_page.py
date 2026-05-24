@@ -35,8 +35,8 @@ class ReadingListPage:
         print(f"{locator=}")
         star_selected = locator.get_by_text('star-selected')
         print(f"{star_selected=}")
-        print(f"{vars(star_selected)=}")
-        print(f"{dir(star_selected)=}")
+        #print(f"{vars(star_selected)=}")
+        #print(f"{dir(star_selected)=}")
         return star_selected is not None
 
     def get_initial_books(self):
