@@ -10,7 +10,7 @@ def get_first_book(context):
         return books[0]
     return None
 
-@when(u'jag hovrar över rad')
+@when(u'jag hovrar över en rad')
 def step_impl(context):
     book = get_first_book(context)
     locator = context.reading_list_page.get_by_test_id(book)
