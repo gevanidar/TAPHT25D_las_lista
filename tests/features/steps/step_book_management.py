@@ -6,6 +6,10 @@ def get_rows(context):
     page = context.reading_list_page.page
     return page.locator('div.catalog .book')
 
+def get_favorite_rows(context):
+    page = context.reading_list_page.page
+    return page.locator('div.favorites .book')
+
 def get_row(context, n):
     rows = get_rows(context)
 
@@ -40,7 +44,9 @@ def step_impl(context, titel, author):
         if author == row_author:
             contains = True
             break
-    assert contains, "The book is not in the list"
+
+    book_name = f'"{title}", {author}'
+    assert contains, f'{book_name} is not in the list'
 
 
 @given(u'bör listan innehålla boken <titel2> och <author2> sist')
@@ -55,10 +61,24 @@ def step_impl(context, titel2, author2):
     if author != row_author:
         contains = False
 
-    assert contains, "Book was not last in list"
+    book_name = f'"{title}", {author}'
+    assert contains, f'{book_name} is not in the list'
 
 
-@given(u'ska jag se en bok med <titel> och <author> i listan')
-def step_impl(context, titel, author):
-    raise StepNotImplementedError(u'ska jag se en bok med <titel> och <author> i listan')
+@given(u'ska jag se en bok med <titel> i favoritlistan')
+def step_impl(context, titel):
+
+    context.reading_list_page.get_by_test_id('book-list')
+    data_test_id = 'fav' + titel
+    rows = get_favorite_rows(context)
+    contains = False;
+    for row in rows:
+        row_titel = row.get_by_test_id(data_test_id)
+        if titel == row_titel:
+            continue
+            contains = True
+            break
+
+    book_name = f'{title}'
+    assert contains, f'{book_name} is not in the favorite list'
 

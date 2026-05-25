@@ -50,5 +50,5 @@ Feature: Book management
 		And jag markerar en rad
 		And jag klickar på hjärtat
 		And jag trycker på knappen favorites
-		Then ska jag se en bok med <titel> och <author> i listan
+		Then ska jag se en bok med <titel> och <author> i favoritlistan
 
