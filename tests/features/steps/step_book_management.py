@@ -36,7 +36,8 @@ def step_impl(context, titel, author):
     rows = get_rows(context)
     
     contains = False;
-    for row in rows:
+    for n in len(rows):
+        row = rows.nth(n)
         row_titel = get_title(row)
         if titel != row_titel:
             continue
@@ -72,7 +73,8 @@ def step_impl(context, titel):
     data_test_id = 'fav' + titel
     rows = get_favorite_rows(context)
     contains = False;
-    for row in rows:
+    for n in len(rows):
+        row = rows.nth(n)
         row_titel = row.get_by_test_id(data_test_id)
         if titel == row_titel:
             continue
