@@ -46,7 +46,7 @@ def step_impl(context, test_id):
         error_message += "author is empty"
     error_message += "."
 
-    print(f"{button=}\n{button.is_disabled()=}")
+    print(f"{button=}\n{button.is_disabled()=}\n{error_message=}\n{title=}\n{author=}")
 
     assert button.is_disabled(), f"Can submit even when {error_message}"
 
