@@ -39,7 +39,7 @@ Feature: Book management
 		Then bör jag se en lista med 15 böcker
 		And bör listan innehålla boken <titel> och <author>
 		And bör listan innehålla boken <titel2> och <author2>
-		And bör listan innehålla boken <titel2> och <author2> sist
+		And bör listans sista bok vara <titel2> och <author2>
 
 	Scenario:
 		When jag trycker på knappen add-book

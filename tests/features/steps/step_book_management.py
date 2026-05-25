@@ -49,7 +49,7 @@ def step_impl(context, titel, author):
     assert contains, f'{book_name} is not in the list'
 
 
-@given(u'bör listan innehålla boken <titel2> och <author2> sist')
+@given(u'bör listans sista bok vara <titel2> och <author2>')
 def step_impl(context, titel2, author2):
     rows = get_rows(context)
     last_row = rows[-1]
