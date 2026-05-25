@@ -32,10 +32,9 @@ def step_impl(context, author):
     author_input.fill(author)
     context.author = author
 
-@then(u'bör jag inte kunna trycka på knappen add-submit')
-def step_impl(context, titel):
-    data_test_id = 'add-submit'
-    submit = context.reading_list_page.get_by_test_id(data_test_id)
+@then(u'bör jag inte kunna trycka på knappen {button}')
+def step_impl(context, test_id):
+    button = context.reading_list_page.get_by_test_id(test_id)
 
     error_message = ""
     if not context.title:
@@ -46,7 +45,7 @@ def step_impl(context, titel):
         error_message += "author is empty"
     error_message += "."
 
-    assert submit.is_disabled(), f"Can submit even when {error_message}"
+    assert button.is_disabled(), f"Can submit even when {error_message}"
 
 @then(u'bör listan innehålla boken {titel} och {author}')
 def step_impl(context, titel, author):
