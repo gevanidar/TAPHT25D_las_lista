@@ -22,7 +22,7 @@ def get_row(context, n):
 def step_impl(context, titel):
     data_test_id = 'add-input-text'
     title_input = context.reading_list_page.get_by_test_id(data_test_id)
-    title_input.fill(title)
+    title_input.fill(titel)
 
 
 @when(u'jag fyller i författaren {author}')
