@@ -2,9 +2,12 @@ from behave import when, then
 
 from behave.api.pending_step import StepNotImplementedError
 
-def get_row(context, n):
+def get_rows(context):
     page = context.reading_list_page.page
-    rows = page.locator('div.catalog .book')
+    return page.locator('div.catalog .book')
+
+def get_row(context, n):
+    rows = get_rows(context)
 
     if len(rows) < n:
         raise StepNotImplementedError("No way to reach row `n`")
@@ -26,7 +29,18 @@ def step_impl(context, author):
 
 @given(u'bör listan innehålla boken <titel> och <author>')
 def step_impl(context, titel, author):
-    raise StepNotImplementedError(u'bör listan innehålla boken <titel> och <author>')
+    rows = get_rows(context)
+    
+    contains = False;
+    for row in rows:
+        row_titel = get_title(row)
+        if titel != row_titel:
+            continue
+        row_author = get_author(row)
+        if author == row_author:
+            contains = True
+            break
+    assert contains, "The book is not in the list"
 
 
 @given(u'bör listan innehålla boken <titel2> och <author2> sist')
