@@ -32,7 +32,7 @@ def step_impl(context, author):
     author_input.fill(author)
     context.author = author
 
-@then(u'bör jag inte kunna trycka på knappen {button}')
+@then(u'bör jag inte kunna trycka på knappen {test_id}')
 def step_impl(context, test_id):
     button = context.reading_list_page.get_by_test_id(test_id)
 
