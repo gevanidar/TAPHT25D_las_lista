@@ -18,20 +18,20 @@ def get_row(context, n):
     row = rows.nth(n)
     return row
 
-@given(u'jag fyller i titeln {titel}')
+@when(u'jag fyller i titeln {titel}')
 def step_impl(context, titel):
     data_test_id = 'add-input-text'
     title_input = context.reading_list_page.get_by_test_id(data_test_id)
     title_input.fill(title)
 
 
-@given(u'jag fyller i författaren {author}')
+@when(u'jag fyller i författaren {author}')
 def step_impl(context, author):
     data_test_id = 'add-input-author'
     author_input = context.reading_list_page.get_by_test_id(data_test_id)
     author_input.fill(author)
 
-@given(u'bör listan innehålla boken {titel} och {author}')
+@then(u'bör listan innehålla boken {titel} och {author}')
 def step_impl(context, titel, author):
     rows = get_rows(context)
     
@@ -49,7 +49,7 @@ def step_impl(context, titel, author):
     assert contains, f'{book_name} is not in the list'
 
 
-@given(u'bör listans sista bok vara <titel2> och <author2>')
+@then(u'bör listans sista bok vara {titel2} och {author2}')
 def step_impl(context, titel2, author2):
     rows = get_rows(context)
     last_row = rows[-1]
@@ -65,7 +65,7 @@ def step_impl(context, titel2, author2):
     assert contains, f'{book_name} is not in the list'
 
 
-@given(u'ska jag se en bok med {titel} i favoritlistan')
+@then(u'ska jag se en bok med {titel} i favoritlistan')
 def step_impl(context, titel):
 
     context.reading_list_page.get_by_test_id('book-list')
