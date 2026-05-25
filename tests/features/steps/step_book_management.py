@@ -21,15 +21,13 @@ def get_row(context, n):
 @when(u'jag fyller i titeln {titel}')
 def step_impl(context, titel):
     data_test_id = 'add-input-title'
-    title_input = context.reading_list_page.get_by_test_id(data_test_id)
-    title_input.fill(titel)
+    context.reading_list_page.fill_field_with_test_id(data_test_id, titel)
     context.title = titel
 
 @when(u'jag fyller i författaren {author}')
 def step_impl(context, author):
     data_test_id = 'add-input-author'
-    author_input = context.reading_list_page.get_by_test_id(data_test_id)
-    author_input.fill(author)
+    context.reading_list_page.fill_field_with_test_id(data_test_id, author)
     context.author = author
 
 @then(u'bör jag inte kunna trycka på knappen {test_id}')
