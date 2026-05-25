@@ -18,6 +18,18 @@ def get_row(context, n):
     row = rows.nth(n)
     return row
 
+@when(u'jag fyller i titeln ')
+def step_impl(context):
+    data_test_id = 'add-input-title'
+    context.reading_list_page.fill_field_with_test_id(data_test_id, "")
+    context.title = titel
+
+@when(u'jag fyller i författaren ')
+def step_impl(context):
+    data_test_id = 'add-input-author'
+    context.reading_list_page.fill_field_with_test_id(data_test_id, "")
+    context.author = author
+
 @when(u'jag fyller i titeln {titel}')
 def step_impl(context, titel):
     data_test_id = 'add-input-title'
