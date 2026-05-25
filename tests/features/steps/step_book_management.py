@@ -18,7 +18,7 @@ def get_row(context, n):
     row = rows.nth(n)
     return row
 
-@when(u'jag fyller i titeln ')
+@when(u'jag fyller i titlen ')
 def step_impl(context):
     data_test_id = 'add-input-title'
     context.reading_list_page.fill_field_with_test_id(data_test_id, "")
@@ -30,11 +30,11 @@ def step_impl(context):
     context.reading_list_page.fill_field_with_test_id(data_test_id, "")
     context.author = ""
 
-@when(u'jag fyller i titeln {titel}')
-def step_impl(context, titel):
+@when(u'jag fyller i titlen {title}')
+def step_impl(context, title):
     data_test_id = 'add-input-title'
-    context.reading_list_page.fill_field_with_test_id(data_test_id, titel)
-    context.title = titel
+    context.reading_list_page.fill_field_with_test_id(data_test_id, title)
+    context.title = title
 
 @when(u'jag fyller i författaren {author}')
 def step_impl(context, author):
@@ -62,57 +62,57 @@ def step_impl(context, test_id):
 
     assert button.is_disabled(), f"Can submit even when {error_message}"
 
-@then(u'bör listan innehålla boken {titel} och {author}')
-def step_impl(context, titel, author):
+@then(u'bör listan innehålla boken {title} och {author}')
+def step_impl(context, title, author):
     rows = get_rows(context)
     
     contains = False;
     for n in range(rows.count()):
         row = rows.nth(n)
-        row_titel = get_title(row)
-        if titel != row_titel:
+        row_title = get_title(row)
+        if title != row_title:
             continue
         row_author = get_author(row)
         if author == row_author:
             contains = True
             break
 
-    book_name = f'"{titel}", {author}'
+    book_name = f'"{title}", {author}'
     assert contains, f'{book_name} is not in the list'
 
 
-@then(u'bör listans sista bok vara {titel2} och {author2}')
-def step_impl(context, titel2, author2):
+@then(u'bör listans sista bok vara {title2} och {author2}')
+def step_impl(context, title2, author2):
     rows = get_rows(context)
     last_row = rows[-1]
     contains = True
-    row_titel = get_title(row)
-    if titel != row_titel:
+    row_title = get_title(row)
+    if title != row_title:
         contains = False
     row_author = get_author(row)
     if author != row_author:
         contains = False
 
-    book_name = f'"{titel}", {author}'
+    book_name = f'"{title}", {author}'
     assert contains, f'{book_name} is not in the list'
 
 
-@then(u'ska jag se en bok med {titel} i favoritlistan')
-def step_impl(context, titel):
+@then(u'ska jag se en bok med {title} i favoritlistan')
+def step_impl(context, title):
 
     context.reading_list_page.get_by_test_id('book-list')
-    data_test_id = 'fav' + titel
+    data_test_id = 'fav' + title
     rows = get_favorite_rows(context)
     contains = False;
     for n in range(rows.count()):
         row = rows.nth(n)
-        row_titel = row.get_by_test_id(data_test_id)
-        print(f'{row_title}, {titel=}, {row_title==titel=}')
-        if titel == row_titel:
+        row_title = row.get_by_test_id(data_test_id)
+        print(f'{row_title}, {title=}, {row_title==title=}')
+        if title == row_title:
             contains = True
             break
 
-    book_name = f'{titel}'
+    book_name = f'{title}'
     assert contains, f'{book_name} is not in the favorite list'
 
 		

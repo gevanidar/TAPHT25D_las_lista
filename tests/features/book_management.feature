@@ -9,18 +9,18 @@ Feature: Book management
 
 	Scenario Outline:
 		When jag trycker på knappen add-book
-		And jag fyller i titeln <titel>
+		And jag fyller i titlen <title>
 		And jag fyller i författaren <author>
 		Then bör jag inte kunna trycka på knappen add-submit
 		Examples:
-			| titel | author |
+			| title | author |
 			|  |  |
 			| En bra bok |  |
 			|  | En bra författare |
 
 	Scenario:
 		When jag trycker på knappen add-book
-		And jag fyller i titeln En bra bok
+		And jag fyller i titlen En bra bok
 		And jag fyller i författaren En bra författare
 		And jag trycker på knappen add-submit
 		And jag trycker på knappen catalog
@@ -29,10 +29,10 @@ Feature: Book management
 
 	Scenario:
 		When jag trycker på knappen add-book
-		And jag fyller i titeln En bra bok
+		And jag fyller i titlen En bra bok
 		And jag fyller i författaren En bra författare
 		And jag trycker på knappen add-submit
-		And jag fyller i titeln En bättre bok
+		And jag fyller i titlen En bättre bok
 		And jag fyller i författaren En bättre författare
 		And jag trycker på knappen add-submit
 		And jag trycker på knappen catalog
@@ -43,7 +43,7 @@ Feature: Book management
 
 	Scenario:
 		When jag trycker på knappen add-book
-		And jag fyller i titeln En bra bok
+		And jag fyller i titlen En bra bok
 		And jag fyller i författaren En bra författare
 		And jag trycker på knappen add-submit
 		And jag trycker på knappen catalog
