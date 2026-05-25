@@ -18,6 +18,12 @@ class ReadingListPage:
         if not locator.is_disabled():
             locator.click()
 
+    def fill_field_with_test_id(self, test_id, text):
+        if not test or len(test) == 0:
+            return
+        locator = self.get_by_test_id(test_id)
+        locator.fill(text)
+
     def toggle_mark_favorite(self, test_id):
         row = self.get_by_test_id(test_id)
         row.click()
