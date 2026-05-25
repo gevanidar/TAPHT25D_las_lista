@@ -19,7 +19,7 @@ class ReadingListPage:
             locator.click()
 
     def fill_field_with_test_id(self, test_id, text):
-        if not test or len(test) == 0:
+        if not text or len(text) == 0:
             return
         locator = self.get_by_test_id(test_id)
         locator.fill(text)
