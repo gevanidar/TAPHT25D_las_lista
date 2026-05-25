@@ -13,13 +13,16 @@ def get_row(context, n):
 
 @given(u'jag fyller i titeln <titel>')
 def step_impl(context, titel):
-    raise StepNotImplementedError(u'jag fyller i titeln <titel>')
+    data_test_id = 'add-input-text'
+    title_input = context.reading_list_page.get_by_test_id(data_test_id)
+    title_input.fill(title)
 
 
 @given(u'jag fyller i författaren <author>')
 def step_impl(context, author):
-    raise StepNotImplementedError(u'jag fyller i författaren <author>')
-
+    data_test_id = 'add-input-author'
+    author_input = context.reading_list_page.get_by_test_id(data_test_id)
+    author_input.fill(author)
 
 @given(u'bör listan innehålla boken <titel> och <author>')
 def step_impl(context, titel, author):
