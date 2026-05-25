@@ -14,9 +14,9 @@ Feature: Book management
 		Then bör jag inte kunna trycka på knappen add-submit
 		Examples:
 			| titel | author |
-			|  |  |
-			| En bra bok |  |
-			|   | En bra författare |
+			| "" | "" |
+			| "En bra bok" |""  |
+			| "" | "En bra författare" |
 
 	Scenario:
 		When jag trycker på knappen add-book
