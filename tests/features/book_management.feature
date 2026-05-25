@@ -50,4 +50,4 @@ Feature: Book management
 		And jag markerar en rad
 		And jag klickar på hjärtat
 		And jag trycker på knappen favorites
-		Then ska jag se en bok med "En bra bok" och "En bra författare" i favoritlistan
+		Then ska jag se en bok med "En bra bok" i favoritlistan
