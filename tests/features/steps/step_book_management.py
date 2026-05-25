@@ -23,13 +23,30 @@ def step_impl(context, titel):
     data_test_id = 'add-input-title'
     title_input = context.reading_list_page.get_by_test_id(data_test_id)
     title_input.fill(titel)
-
+    context.title = title
 
 @when(u'jag fyller i författaren {author}')
 def step_impl(context, author):
     data_test_id = 'add-input-author'
     author_input = context.reading_list_page.get_by_test_id(data_test_id)
     author_input.fill(author)
+    context.author = author
+
+@then(u'bör jag inte kunna trycka på knappen add-submit')
+def step_impl(context, titel):
+    data_test_id = 'add-submit'
+    submit = context.reading_list_page.get_by_test_id(data_test_id)
+
+    error_message = ""
+    if not context.title:
+        error_message = "title is empty"
+    if not context.author:
+        if error_message:
+            error_message += " and "
+        error_message += "author is empty"
+    error_message += "."
+
+    assert submit.is_disabled(), f"Can submit even when {error_message}"
 
 @then(u'bör listan innehålla boken {titel} och {author}')
 def step_impl(context, titel, author):
@@ -83,4 +100,6 @@ def step_impl(context, titel):
 
     book_name = f'{titel}'
     assert contains, f'{book_name} is not in the favorite list'
+
+		
 
