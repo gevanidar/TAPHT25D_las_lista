@@ -107,7 +107,7 @@ def step_impl(context, titel):
     for n in range(rows.count()):
         row = rows.nth(n)
         row_titel = row.get_by_test_id(data_test_id)
-        print(f'{title=}')
+        print(f'{titel=}')
         if titel == row_titel:
             continue
             contains = True
