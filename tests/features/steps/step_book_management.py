@@ -109,7 +109,6 @@ def step_impl(context, titel):
         row_titel = row.get_by_test_id(data_test_id)
         print(f'{titel=}')
         if titel == row_titel:
-            continue
             contains = True
             break
 
