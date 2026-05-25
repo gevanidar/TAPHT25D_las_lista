@@ -37,6 +37,8 @@ def step_impl(context, test_id):
     button = context.reading_list_page.get_by_test_id(test_id)
 
     title = context.title
+    author = context.author
+
     error_message = ""
     if not title or len(title) == 0:
         error_message = "title is empty"
