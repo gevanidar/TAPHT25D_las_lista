@@ -36,14 +36,17 @@ def step_impl(context, author):
 def step_impl(context, test_id):
     button = context.reading_list_page.get_by_test_id(test_id)
 
+    title = context.title
     error_message = ""
-    if not context.title:
+    if not title or len(title) == 0:
         error_message = "title is empty"
-    if not context.author:
-        if error_message:
+    if not author or len(author) == 0:
+        if len(error_message) == 0:
             error_message += " and "
         error_message += "author is empty"
     error_message += "."
+
+    print(f"{button=}")
 
     assert button.is_disabled(), f"Can submit even when {error_message}"
 
