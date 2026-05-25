@@ -22,13 +22,13 @@ def get_row(context, n):
 def step_impl(context):
     data_test_id = 'add-input-title'
     context.reading_list_page.fill_field_with_test_id(data_test_id, "")
-    context.title = titel
+    context.title = ""
 
 @when(u'jag fyller i författaren ')
 def step_impl(context):
     data_test_id = 'add-input-author'
     context.reading_list_page.fill_field_with_test_id(data_test_id, "")
-    context.author = author
+    context.author = ""
 
 @when(u'jag fyller i titeln {titel}')
 def step_impl(context, titel):
