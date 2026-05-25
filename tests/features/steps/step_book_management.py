@@ -45,7 +45,17 @@ def step_impl(context, titel, author):
 
 @given(u'bör listan innehålla boken <titel2> och <author2> sist')
 def step_impl(context, titel2, author2):
-    raise StepNotImplementedError(u'bör listan innehålla boken <titel2> och <author2> sist')
+    rows = get_rows(context)
+    last_row = rows[-1]
+    contains = True
+    row_titel = get_title(row)
+    if titel != row_titel:
+        contains = False
+    row_author = get_author(row)
+    if author != row_author:
+        contains = False
+
+    assert contains, "Book was not last in list"
 
 
 @given(u'ska jag se en bok med <titel> och <author> i listan')
