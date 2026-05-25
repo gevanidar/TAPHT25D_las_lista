@@ -16,7 +16,7 @@ Feature: Book management
 			| titel | author |
 			|  |  |
 			| En bra bok |  |
-			|   | En bra författare
+			|   | En bra författare |
 
 	Scenario:
 		When jag trycker på knappen add-book
