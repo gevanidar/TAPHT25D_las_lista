@@ -10,10 +10,10 @@ Feature: Book management
 	Scenario Outline:
 		When jag trycker på knappen add-book
 		And jag fyller i titeln <titel>
-		And jag fyller i författaren <författare>
+		And jag fyller i författaren <author>
 		Then bör jag inte kunna trycka på knappen add-submit
 		Examples:
-			| titel | författare |
+			| titel | author |
 			|  |  |
 			| En bra bok |  |
 			|   | En bra författare
@@ -21,34 +21,34 @@ Feature: Book management
 	Scenario:
 		When jag trycker på knappen add-book
 		And jag fyller i titeln <titel>
-		And jag fyller i författaren <författare>
+		And jag fyller i författaren <author>
 		And jag trycker på knappen add-submit
 		And jag trycker på knappen catalog
 		Then bör jag se en lista med 14 böcker
-		And bör listan innehålla boken <titel> och <författare>
+		And bör listan innehålla boken <titel> och <author>
 
 	Scenario:
 		When jag trycker på knappen add-book
 		And jag fyller i titeln <titel>
-		And jag fyller i författaren <författare>
+		And jag fyller i författaren <author>
 		And jag trycker på knappen add-submit
 		And jag fyller i titeln <titel2>
-		And jag fyller i författaren <författare2>
+		And jag fyller i författaren <author2>
 		And jag trycker på knappen add-submit
 		And jag trycker på knappen catalog
 		Then bör jag se en lista med 15 böcker
-		And bör listan innehålla boken <titel> och <författare>
-		And bör listan innehålla boken <titel2> och <författare2>
-		And bör listan innehålla boken <titel2> och <författare2> sist
+		And bör listan innehålla boken <titel> och <author>
+		And bör listan innehålla boken <titel2> och <author2>
+		And bör listan innehålla boken <titel2> och <author2> sist
 
 	Scenario:
 		When jag trycker på knappen add-book
 		And jag fyller i titeln <titel>
-		And jag fyller i författaren <författare>
+		And jag fyller i författaren <author>
 		And jag trycker på knappen add-submit
 		And jag trycker på knappen catalog
 		And jag markerar en rad
 		And jag klickar på hjärtat
 		And jag trycker på knappen favorites
-		Then ska jag se en bok med <titel> och <författare> i listan
+		Then ska jag se en bok med <titel> och <author> i listan
 
