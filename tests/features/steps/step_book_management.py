@@ -20,7 +20,7 @@ def get_row(context, n):
 
 @when(u'jag fyller i titeln {titel}')
 def step_impl(context, titel):
-    data_test_id = 'add-input-text'
+    data_test_id = 'add-input-title'
     title_input = context.reading_list_page.get_by_test_id(data_test_id)
     title_input.fill(titel)
 
