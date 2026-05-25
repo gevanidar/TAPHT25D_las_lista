@@ -45,7 +45,7 @@ def step_impl(context, titel, author):
             contains = True
             break
 
-    book_name = f'"{title}", {author}'
+    book_name = f'"{titel}", {author}'
     assert contains, f'{book_name} is not in the list'
 
 
@@ -61,7 +61,7 @@ def step_impl(context, titel2, author2):
     if author != row_author:
         contains = False
 
-    book_name = f'"{title}", {author}'
+    book_name = f'"{titel}", {author}'
     assert contains, f'{book_name} is not in the list'
 
 
@@ -79,6 +79,6 @@ def step_impl(context, titel):
             contains = True
             break
 
-    book_name = f'{title}'
+    book_name = f'{titel}'
     assert contains, f'{book_name} is not in the favorite list'
 
