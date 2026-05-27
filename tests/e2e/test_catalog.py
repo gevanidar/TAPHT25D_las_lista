@@ -18,6 +18,7 @@ def setup_catalog():
 def setup_book_snakes_on_a_plane():
     return "star-Ormar på ett plan: En Python-berättelse"
 
+@pytest.mark.e2e
 def test_has_title(page: Page, homepage):
     page.goto(homepage)
 
@@ -31,8 +32,13 @@ def test_catalog_button_visible(page: Page, homepage, catalog):
 
 @pytest.mark.e2e
 def test_goto_catalog_should_show_catalog(page: Page, homepage, catalog, book_snakes_on_a_plane):
+    # Arrange
     page.goto(homepage)
 
-    button = page.get_by_test_id('catalog')
+    button = page.get_by_test_id('add-book').click()
 
+    # Act
+    button = page.get_by_test_id('catalog').click()
+
+    # Assert
     expect(page.get_by_test_id(book_snakes_on_a_plane)).to_be_visible()
