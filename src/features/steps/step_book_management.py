@@ -8,29 +8,6 @@ def get_rows(context):
     return page.locator("div.catalog .book")
 
 
-def get_favorite_rows(context):
-    page = context.reading_list_page.page
-    return page.locator("div.favorites .book")
-
-
-def get_row(context, n):
-    rows = get_rows(context)
-
-    if rows.count() < n:
-        raise StepNotImplementedError("No way to reach row `n`")
-    row = rows.nth(n)
-    return row
-
-def get_favorite_row(context, n):
-    rows = get_favorite_rows(context)
-
-    if rows.count() < n:
-        raise StepNotImplementedError("No way to reach row `n`")
-    row = rows.nth(n)
-    return row
-
-
-
 @when("jag fyller i titlen ")
 def step_impl(context):
     data_test_id = "add-input-title"
@@ -89,7 +66,11 @@ def step_impl(context, title, author):
 @then("bör listans sista bok vara {title2} och {author2}")
 def step_impl(context, title2, author2):
     rows = get_rows(context)
-    last_row = rows[-1]
+    last_row = rows.last
+    print(f'{rows=}, {last_row=}')
+    count = rows.count()
+    last_row = rows.nth(count-1)
+
     contains = True
     row_title = get_title(row)
     if title != row_title:
@@ -98,5 +79,5 @@ def step_impl(context, title2, author2):
     if author != row_author:
         contains = False
 
-    book_name = f'"{title}", {author}'
-    assert contains, f"{book_name} is not in the list"
+    expected_book_name = f'"{title2}", {author2}'
+    assert contains, f"{expected_book_name} is not in the list"
