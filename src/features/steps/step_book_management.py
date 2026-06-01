@@ -123,7 +123,6 @@ def step_impl(context, title):
     row_title = get_title(row)
     if title != row_title:
         contains = True
-        break
 
     book_title = f'"{title}"'
     assert contains, f"{book_title} is not in the list"
