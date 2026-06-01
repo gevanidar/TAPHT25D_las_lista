@@ -117,7 +117,7 @@ def step_impl(context, title2, author2):
 
 @then("ska jag se en bok med {title} i favoritlistan")
 def step_impl(context, title):
-    rows = get_rows(context)
+    rows = get_favorite_rows(context)
 
     contains = False
     for n in range(rows.count()):
