@@ -82,21 +82,8 @@ def step_impl(context, test_id):
 
 @then("bör listan innehålla boken {title} och {author}")
 def step_impl(context, title, author):
-    rows = get_rows(context)
-
-    contains = False
-    for n in range(rows.count()):
-        row = rows.nth(n)
-        row_title = get_title(row)
-        if title != row_title:
-            continue
-        row_author = get_author(row)
-        if author == row_author:
-            contains = True
-            break
-
-    book_name = f'"{title}", {author}'
-    assert contains, f"{book_name} is not in the list"
+    book_name = f'"{title}", {author}')
+    assert context.reading_list_page.contains_row_with_test_id(book_name)
 
 
 @then("bör listans sista bok vara {title2} och {author2}")
