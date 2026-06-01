@@ -16,7 +16,7 @@ def get_favorite_rows(context):
 def get_row(context, n):
     rows = get_rows(context)
 
-    if len(rows) < n:
+    if rows.count() < n:
         raise StepNotImplementedError("No way to reach row `n`")
     row = rows.nth(n)
     return row
@@ -24,7 +24,7 @@ def get_row(context, n):
 def get_favorite_row(context, n):
     rows = get_favorite_rows(context)
 
-    if len(rows) < n:
+    if rows.count() < n:
         raise StepNotImplementedError("No way to reach row `n`")
     row = rows.nth(n)
     return row
