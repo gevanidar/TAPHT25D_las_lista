@@ -114,5 +114,5 @@ def step_impl(context, title):
     book = context.reading_list_page.get_by_test_id(fav_title)
     # TODO: Fix errors
     print(f"Should not be found {book=}")
-    print(f"{title=}")
+    print(f"{context.title=}")
     assert book is None, f"{title} is not in the favorite list"
