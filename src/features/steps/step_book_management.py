@@ -117,6 +117,12 @@ def step_impl(context, title2, author2):
 
 @then("ska jag se en bok med {title} i favoritlistan")
 def step_impl(context, title):
+    rows = get_rows(context)
+
+    contains = False
+    for n in range(rows.count()):
+        row = rows.nth(n)
+        print(f'looped {row=}')
     row = get_favorite_row(context, 0)
     print(f'{row=}')
     contains = False
