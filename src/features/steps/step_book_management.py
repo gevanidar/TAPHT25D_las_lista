@@ -52,8 +52,6 @@ def step_impl(context, test_id):
         error_message += "author is empty"
     error_message += "."
 
-    print(f"{button=}\n{button.is_disabled()=}\n{error_message=}\n{title=}\n{author=}")
-
     assert button.is_disabled(), f"Can submit even when {error_message}"
 
 
@@ -66,14 +64,12 @@ def step_impl(context, title, author):
 @then("bör listans sista bok vara {title2} och {author2}")
 def step_impl(context, title2, author2):
     rows = get_rows(context)
-    print(f'{rows.count()=}')
     count = rows.count()
     last_row = rows.nth(count-1)
     last_row_inner = last_row.locator('div')
 
     row_data_test_id = last_row_inner.get_attribute('data-testid')
-    row_book_name = last_rowget_attribute('text')
-    print(f'{row_data_test_id=}\n{row_book_name=}\n')
+    row_book_name = last_row.get_attribute('text')
 
     expected_data_test_id = f'star-{title2}'
     assert expected_data_test_id == row_data_test_id, f"{expected_data_test_id} is not last in the list, {row_data_test_id} is."

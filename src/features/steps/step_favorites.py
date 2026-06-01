@@ -6,7 +6,6 @@ from behave.api.pending_step import StepNotImplementedError
 def get_first_book(context):
     initial_state = context.initial_state
     books = initial_state.get_books()
-    # print(f"{context=}\n{initial_state=}\n{books=}")
     if books and len(books) > 0:
         return books[0]
     return None
