@@ -67,17 +67,8 @@ def step_impl(context, title, author):
 def step_impl(context, title2, author2):
     rows = get_rows(context)
     last_row = rows.last
-    print(f'{rows=}\n{last_row=}\n{last_row.text=}')
-    count = rows.count()
-    last_row = rows.nth(count-1)
 
-    contains = True
-    row_title = get_title(row)
-    if title != row_title:
-        contains = False
-    row_author = get_author(row)
-    if author != row_author:
-        contains = False
+    row_data_test_id = row.get_attribute('data-test-id')
 
     expected_book_name = f'"{title2}", {author2}'
-    assert contains, f"{expected_book_name} is not in the list"
+    assert expected_book_name == row_data_test_id, f"{expected_book_name} is not last in the list, {row_data_test_id} is."
