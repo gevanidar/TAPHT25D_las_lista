@@ -68,7 +68,7 @@ def step_impl(context, title2, author2):
     rows = get_rows(context)
     last_row = rows.last
 
-    row_data_test_id = row.get_attribute('data-test-id')
+    row_data_test_id = last_row.get_attribute('data-test-id')
 
     expected_book_name = f'"{title2}", {author2}'
     assert expected_book_name == row_data_test_id, f"{expected_book_name} is not last in the list, {row_data_test_id} is."
