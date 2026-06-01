@@ -21,6 +21,14 @@ def get_row(context, n):
     row = rows.nth(n)
     return row
 
+def get_favorite_row(context, n):
+    rows = get_favorite_rows(context)
+
+    if len(rows) < n:
+        raise StepNotImplementedError("No way to reach row `n`")
+    row = rows.nth(n)
+    return row
+
 
 
 @when("jag fyller i titlen ")
@@ -109,18 +117,13 @@ def step_impl(context, title2, author2):
 
 @then("ska jag se en bok med {title} i favoritlistan")
 def step_impl(context, title):
-
-    rows = get_favorite_rows(context)
-
-    row = get_row(rows, 0)
-    print(f'{rows=}\n{row=}')
+    row = get_favorite_row(context, 0)
+    print(f'{row=}')
     contains = False
-    for n in range(rows.count()):
-        row = rows.nth(n)
-        row_title = get_title(row)
-        if title != row_title:
-            contains = True
-            break
+    row_title = get_title(row)
+    if title != row_title:
+        contains = True
+        break
 
     book_title = f'"{title}"'
     assert contains, f"{book_title} is not in the list"
