@@ -117,6 +117,8 @@ def step_impl(context, title2, author2):
 
 @then("ska jag se en bok med {title} i favoritlistan")
 def step_impl(context, title):
+    print(context.reading_list_page.contains_favorite(title))
+
     rows = get_favorite_rows(context)
 
     contains = False
