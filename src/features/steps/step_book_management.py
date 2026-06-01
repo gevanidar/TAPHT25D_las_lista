@@ -66,7 +66,7 @@ def step_impl(context, title, author):
 @then("bör listans sista bok vara {title2} och {author2}")
 def step_impl(context, title2, author2):
     rows = get_rows(context)
-    print(f'{rows.count()=}")
+    print(f'{rows.count()=}')
     last_row = rows.locator("> div").last
 
     row_data_test_id = last_row.get_attribute('data-test-id')
