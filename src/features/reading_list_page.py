@@ -3,7 +3,6 @@ class ReadingListPage:
         self.page = page
         self.page.set_default_timeout(1000)
         self.base_url = "https://tap-ht25-testverktyg.github.io/exam/"
-        self.navigate()
 
         self.search_input = page.locator("#search-input")
         self.search_button = page.locator("#search-button")

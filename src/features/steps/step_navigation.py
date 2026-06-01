@@ -5,7 +5,7 @@ from behave.api.pending_step import StepNotImplementedError
 
 @given("att jag är på hemsidan")
 def step_impl(context):
-    pass
+    context.reading_list_page.navigate()
 
 
 @when("jag trycker på knappen {button}")
