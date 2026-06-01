@@ -41,6 +41,6 @@ class ReadingListPage:
         clazz = row.get_attribute("class")
         return clazz == "star selected"
 
-    def contains_favorite(self, test_id):
+    def contains_row_with_test_id(self, test_id):
         row = self.get_by_test_id(test_id)
         return row is not None

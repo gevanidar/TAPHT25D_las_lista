@@ -53,7 +53,7 @@ def step_impl(context):
     book = get_first_book(context)
     # TODO: Fix this quick hack
     fav_book = "fav" + book[4:]
-    context.reading_list_page.contains_favorite(fav_book)
+    context.reading_list_page.contains_row_with_test_id(fav_book)
 
 
 @then("ska jag inte se boken i listan")
@@ -61,8 +61,8 @@ def step_impl(context):
     book = get_first_book(context)
     # TODO: Fix this quick hack
     fav_book = "fav" + book[4:]
-    assert context.reading_list_page.contains_favorite(fav_book)
+    assert context.reading_list_page.contains_row_with_test_id(fav_book)
 
 @then("ska jag se en bok med {title} i favoritlistan")
 def step_impl(context, title):
-    assert context.reading_list_page.contains_favorite(title)
+    assert context.reading_list_page.contains_row_with_test_id(title)
