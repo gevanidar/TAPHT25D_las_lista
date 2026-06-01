@@ -73,8 +73,8 @@ def step_impl(context, title2, author2):
     print(f'{last_row=}')
     print(f'{last_row_inner=}')
 
-    row_data_test_id = last_row.get_attribute('data-test-id')
-    row_text = last_row.get_attribute('text')
+    row_data_test_id = last_row_inner.get_attribute('data-test-id')
+    row_text = last_row_inner.get_attribute('text')
 
     expected_data_test_id = f'star-{title2}'
     assert expected_data_test_id == row_data_test_id, f"{expected_data_test_id} is not last in the list, {row_data_test_id} is."
