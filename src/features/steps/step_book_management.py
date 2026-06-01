@@ -67,7 +67,7 @@ def step_impl(context, title, author):
 def step_impl(context, title2, author2):
     rows = get_rows(context)
     last_row = rows.last
-    print(f'{rows=}, {last_row=}')
+    print(f'{rows=}\n{last_row=}\n{last_row.text=}')
     count = rows.count()
     last_row = rows.nth(count-1)
 
