@@ -110,6 +110,21 @@ def step_impl(context, title2, author2):
 @then("ska jag se en bok med {title} i favoritlistan")
 def step_impl(context, title):
 
+    rows = get_favorite_rows(context)
+
+    row = get_row(rows, 0)
+    print(f'{rows=}\n{row=}')
+    contains = False
+    for n in range(rows.count()):
+        row = rows.nth(n)
+        row_title = get_title(row)
+        if title != row_title:
+            contains = True
+            break
+
+    book_title = f'"{title}"'
+    assert contains, f"{book_title} is not in the list"
+
     fav_title = "fav-" + title
     book = context.reading_list_page.get_by_test_id(fav_title)
     # TODO: Fix errors
