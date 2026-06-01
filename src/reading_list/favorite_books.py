@@ -2,6 +2,7 @@
 
 from .book import Book
 
+
 class FavoriteBooks:
     """A list of my favorite books."""
 

@@ -2,13 +2,16 @@ from behave import when, then
 
 from behave.api.pending_step import StepNotImplementedError
 
+
 def get_rows(context):
     page = context.reading_list_page.page
-    return page.locator('div.catalog .book')
+    return page.locator("div.catalog .book")
+
 
 def get_favorite_rows(context):
     page = context.reading_list_page.page
-    return page.locator('div.favorites .book')
+    return page.locator("div.favorites .book")
+
 
 def get_row(context, n):
     rows = get_rows(context)
@@ -18,31 +21,36 @@ def get_row(context, n):
     row = rows.nth(n)
     return row
 
-@when(u'jag fyller i titlen ')
+
+@when("jag fyller i titlen ")
 def step_impl(context):
-    data_test_id = 'add-input-title'
+    data_test_id = "add-input-title"
     context.reading_list_page.fill_field_with_test_id(data_test_id, "")
     context.title = ""
 
-@when(u'jag fyller i författaren ')
+
+@when("jag fyller i författaren ")
 def step_impl(context):
-    data_test_id = 'add-input-author'
+    data_test_id = "add-input-author"
     context.reading_list_page.fill_field_with_test_id(data_test_id, "")
     context.author = ""
 
-@when(u'jag fyller i titlen {title}')
+
+@when("jag fyller i titlen {title}")
 def step_impl(context, title):
-    data_test_id = 'add-input-title'
+    data_test_id = "add-input-title"
     context.reading_list_page.fill_field_with_test_id(data_test_id, title)
     context.title = title
 
-@when(u'jag fyller i författaren {author}')
+
+@when("jag fyller i författaren {author}")
 def step_impl(context, author):
-    data_test_id = 'add-input-author'
+    data_test_id = "add-input-author"
     context.reading_list_page.fill_field_with_test_id(data_test_id, author)
     context.author = author
 
-@then(u'bör jag inte kunna trycka på knappen {test_id}')
+
+@then("bör jag inte kunna trycka på knappen {test_id}")
 def step_impl(context, test_id):
     button = context.reading_list_page.get_by_test_id(test_id)
 
@@ -62,11 +70,12 @@ def step_impl(context, test_id):
 
     assert button.is_disabled(), f"Can submit even when {error_message}"
 
-@then(u'bör listan innehålla boken {title} och {author}')
+
+@then("bör listan innehålla boken {title} och {author}")
 def step_impl(context, title, author):
     rows = get_rows(context)
-    
-    contains = False;
+
+    contains = False
     for n in range(rows.count()):
         row = rows.nth(n)
         row_title = get_title(row)
@@ -78,10 +87,10 @@ def step_impl(context, title, author):
             break
 
     book_name = f'"{title}", {author}'
-    assert contains, f'{book_name} is not in the list'
+    assert contains, f"{book_name} is not in the list"
 
 
-@then(u'bör listans sista bok vara {title2} och {author2}')
+@then("bör listans sista bok vara {title2} och {author2}")
 def step_impl(context, title2, author2):
     rows = get_rows(context)
     last_row = rows[-1]
@@ -94,17 +103,14 @@ def step_impl(context, title2, author2):
         contains = False
 
     book_name = f'"{title}", {author}'
-    assert contains, f'{book_name} is not in the list'
+    assert contains, f"{book_name} is not in the list"
 
 
-@then(u'ska jag se en bok med {title} i favoritlistan')
+@then("ska jag se en bok med {title} i favoritlistan")
 def step_impl(context, title):
 
-    fav_title  = 'fav-' + title
+    fav_title = "fav-" + title
     book = context.reading_list_page.get_by_test_id(fav_title)
     # TODO: Fix errors
-    print(f'Should not be found {book=}')
-    assert book is None, f'{title} is not in the favorite list'
-
-		
-
+    print(f"Should not be found {book=}")
+    assert book is None, f"{title} is not in the favorite list"

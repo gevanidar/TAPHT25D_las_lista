@@ -6,21 +6,25 @@ import pytest
 from reading_list.book import Book
 from reading_list.book_store import BookStore
 
+
 # Arrange
 @pytest.fixture(name="author")
 def setup_author():
     """Author fixture."""
     return "Kung Kobra"
 
+
 @pytest.fixture(name="title")
 def setup_title():
     """Title fixture."""
     return "Min lilla bok om python"
 
+
 @pytest.fixture(name="book")
 def setup_book(author, title):
     """Book fixture."""
     return Book(author, title)
+
 
 @pytest.fixture(name="favorite_books")
 def setup_favorite_books():
@@ -45,10 +49,12 @@ def setup_favorite_books():
 
     return favorite_books
 
+
 @pytest.fixture(name="book_store")
 def setup_book_store(favorite_books):
     """BookStore fixture."""
     return BookStore(favorite_books)
+
 
 @pytest.mark.unit
 def test_add_book_to_book_store(book_store, book):
@@ -73,6 +79,7 @@ def test_add_book_to_book_store(book_store, book):
     assert book_in_store.title == book.title
     assert book_in_store.book_id == book.book_id
 
+
 @pytest.mark.unit
 def test_toggle_book_favorite_to_favorite(book_store, book):
     """Test the toggle_favorite method.
@@ -85,6 +92,7 @@ def test_toggle_book_favorite_to_favorite(book_store, book):
     # Assert
     # Verify that the book is now favorite
     assert book.book_id in book_store.favorite_books.book_ids
+
 
 @pytest.mark.unit
 def test_toggle_book_favorite_twice_book_no_longer_a_favorite(book_store, book):

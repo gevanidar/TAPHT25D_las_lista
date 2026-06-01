@@ -3,12 +3,14 @@ from playwright.sync_api import sync_playwright
 from reading_list_page import ReadingListPage
 from initial_state import InitialState
 
+
 # Runs before any scenarios
 def before_all(context):
     # Start Playwright and the browser - close it in after_all
     context.playwright = sync_playwright().start()
     context.browser_type = context.playwright.chromium
     context.browser = context.browser_type.launch(headless=True)
+
 
 # Runs at the start of each scenario
 def before_scenario(context, scenario):
@@ -19,11 +21,13 @@ def before_scenario(context, scenario):
     context.reading_list_page = reading_list_page
     context.initial_state = InitialState()
 
+
 # Runs directly after each scenario - clean up to avoid memory leaks
 def after_scenario(context, scenario):
     page = context.reading_list_page.page
     if page:
         page.close()
+
 
 # Runs after all scenarios have finished - clean up
 def after_all(context):

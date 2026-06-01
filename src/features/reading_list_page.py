@@ -40,9 +40,8 @@ class ReadingListPage:
     def is_favorite_marked(self, test_id):
         row = self.get_by_test_id(test_id)
         clazz = row.get_attribute("class")
-        return clazz == 'star selected'
+        return clazz == "star selected"
 
     def contains_favorite(self, test_id):
         row = self.get_by_test_id(test_id)
         return row is not None
-
