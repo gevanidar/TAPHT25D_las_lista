@@ -71,6 +71,7 @@ def step_impl(context, title2, author2):
     row_data_test_id = last_row_inner.get_attribute('data-testid')
     row_book_name = last_row.get_attribute('text')
 
+    print(f"{row_data_test_id=}\n{row_book_name=}\n{last_row=}\n{last_row_inner=}")
     expected_data_test_id = f'star-{title2}'
     assert expected_data_test_id == row_data_test_id, f"{expected_data_test_id} is not last in the list, {row_data_test_id} is."
 
