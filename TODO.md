@@ -54,6 +54,10 @@
 
 - [ ] Implement CI for the project, the CI should run all tests when pushing to the main branch. (Use a headless browser)
 
+## Refactor
+
+- [ ] (VG) Refactor the code so that functions are reused
+
 --- 
 
 ## Checklist
