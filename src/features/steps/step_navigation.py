@@ -19,7 +19,6 @@ def step_impl(context, count):
     rows = page.locator("div.catalog .book")
 
     assert count == rows.count()
-    
 
 
 @then("bör jag se en div med {div_class}")
