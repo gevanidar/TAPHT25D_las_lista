@@ -71,8 +71,8 @@ def step_impl(context, title2, author2):
     last_row = rows.nth(count-1)
     last_row_inner = last_row.locator('div')
 
-    row_data_test_id = last_row_inner.get_attribute('data-test-id')
-    row_book_name = last_row_inner.get_attribute('text')
+    row_data_test_id = last_row_inner.get_attribute('data-testid')
+    row_book_name = last_rowget_attribute('text')
     print(f'{row_data_test_id=}\n{row_book_name=}\n')
 
     expected_data_test_id = f'star-{title2}'
