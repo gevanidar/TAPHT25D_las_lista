@@ -62,3 +62,7 @@ def step_impl(context):
     # TODO: Fix this quick hack
     fav_book = "fav" + book[4:]
     assert context.reading_list_page.contains_favorite(fav_book)
+
+@then("ska jag se en bok med {title} i favoritlistan")
+def step_impl(context, title):
+    assert context.reading_list_page.contains_favorite(title)

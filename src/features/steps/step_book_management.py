@@ -113,31 +113,3 @@ def step_impl(context, title2, author2):
 
     book_name = f'"{title}", {author}'
     assert contains, f"{book_name} is not in the list"
-
-
-@then("ska jag se en bok med {title} i favoritlistan")
-def step_impl(context, title):
-    print(context.reading_list_page.contains_favorite(title))
-
-    rows = get_favorite_rows(context)
-
-    contains = False
-    for n in range(rows.count()):
-        row = rows.nth(n)
-        print(f'looped {row=}')
-    row = get_favorite_row(context, 0)
-    print(f'{row=}')
-    contains = False
-    row_title = get_title(row)
-    if title != row_title:
-        contains = True
-
-    book_title = f'"{title}"'
-    assert contains, f"{book_title} is not in the list"
-
-    fav_title = "fav-" + title
-    book = context.reading_list_page.get_by_test_id(fav_title)
-    # TODO: Fix errors
-    print(f"Should not be found {book=}")
-    print(f"{context.title=}")
-    assert book is None, f"{title} is not in the favorite list"
