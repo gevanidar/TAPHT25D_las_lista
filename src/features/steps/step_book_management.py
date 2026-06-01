@@ -69,6 +69,7 @@ def step_impl(context, title2, author2):
     print(f'{rows.count()=}')
     count = rows.count()
     last_row = rows.nth(count-1)
+    print(f'{last_row=}')
 
     row_data_test_id = last_row.get_attribute('data-test-id')
     row_text = last_row.get_attribute('text')
