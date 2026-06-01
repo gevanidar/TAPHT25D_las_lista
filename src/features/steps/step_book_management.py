@@ -82,7 +82,7 @@ def step_impl(context, test_id):
 
 @then("bör listan innehålla boken {title} och {author}")
 def step_impl(context, title, author):
-    book_name = f'"{title}", {author}')
+    book_name = f'"{title}", {author}'
     assert context.reading_list_page.contains_row_with_test_id(book_name)
 
 
