@@ -81,7 +81,7 @@ class ReadingListPage:
 
     def contains_favorite_book(self, book):
         fav_book_test_id = 'fav' + book[4:]
-        return contains_row_with_test_id(fav_book_test_id)
+        return self.contains_row_with_test_id(fav_book_test_id)
     
     # Statistics Page route
     def get_statistics_book_count_text(self):
