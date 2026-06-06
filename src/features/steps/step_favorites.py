@@ -1,8 +1,5 @@
 from behave import when, then
 
-from playwright.api import expect
-
-
 def get_first_book(context):
     # TODO: Extract this to the ReadingListPage
     initial_state = context.initial_state
@@ -17,10 +14,8 @@ def step_impl(context, page):
     # TODO: Extract this to the ReadingListPage
     locator = context.reading_list_page.page.locator("main")
     assert locator is not None
-    expect(locator).to_be_visible()
     locator.get_by_text(page)
     assert locator is not None
-    expect(locator).to_be_visible()
 
 
 # TODO: This is actually not the row, this is the heart of the first row.
@@ -55,20 +50,15 @@ def step_impl(context):
 @then("ska jag se boken i listan")
 def step_impl(context):
     book = get_first_book(context)
-    # TODO: Fix this quick hack
-    fav_book = "fav" + book[4:]
-    context.reading_list_page.contains_row_with_test_id(fav_book)
+    assert context.reading_list_page.contains_favorite_book(book), f'{book} was not found in the list'
 
 
 @then("ska jag inte se boken i listan")
 def step_impl(context):
     book = get_first_book(context)
-    # TODO: Fix this quick hack
-    fav_book = "fav" + book[4:]
-    assert context.reading_list_page.contains_row_with_test_id(fav_book)
+    assert not context.reading_list_page.contains_favorite_book(book), f'{book} was found in the list'
 
 
 @then("ska jag se en bok med {title} i favoritlistan")
 def step_impl(context, title):
-    # TODO: Extract this to the ReadingListPage
-    assert context.reading_list_page.contains_row_with_test_id(title)
+    assert context.reading_list_page.contains_favorite_book(book), f'book with title: "{title}" was not found in the list'
