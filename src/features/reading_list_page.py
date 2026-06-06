@@ -49,9 +49,14 @@ class ReadingListPage:
     def get_catalog_rows(self):
         return self.page.locator("div.catalog .book")
 
-    def get_catalog_row(self, i):
+    def get_catalog_book_count(self): 
         rows = self.get_catalog_rows()
-        count = rows.count()
+        if not rows:
+            return 0
+        return rows.count()
+
+    def get_catalog_row(self, i):
+        count = self.get_catalog_book_count()
         if i > count:
             return None
 
@@ -61,12 +66,11 @@ class ReadingListPage:
         return row, inner_row
 
     def get_catalog_last_row(self):
-        rows = self.get_catalog_rows()
-        count = rows.count()
+        count = self.get_catalog_book_count()
 
         i = count - 1
 
-        return get_catalog_row(i)
+        return self.get_catalog_row(i)
 
     
     def add_input_title(self, title):
