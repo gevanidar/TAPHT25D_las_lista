@@ -44,3 +44,21 @@ class ReadingListPage:
     def contains_row_with_test_id(self, test_id):
         row = self.get_by_test_id(test_id)
         return row is not None
+
+    
+    # Statistics Page route
+    def get_statistics_book_count_text(self):
+        return self.get_by_test_id('book-count')
+
+    def get_statistics_favorites_text(self):
+        return self.get_by_test_id('stars_count')
+
+    def get_statistics(self):
+        book_count_text = self.get_statistics_book_count_text()
+        favorite_count_text = self.get_statistics_favorites_text()
+        
+        book_count = int(book_count_text.replace('Listan har ', '').replace(' böcker', ''))
+        favorite_count = int(favorite_count_text.replace('Våra användare har hjärtmarkerat ', '').replace(' böcker', ''))
+
+        return book_count, favorite_count
+
