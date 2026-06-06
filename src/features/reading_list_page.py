@@ -81,7 +81,10 @@ class ReadingListPage:
     def convert_to_fav_test_id(self, test_id):
         return 'fav' + test_id[4:]
 
-    def contains_favorite_book(self, test_id):
+    def contains_favorite_book_title(self, text):
+        return self.get_by_text(text)
+
+    def contains_favorite_book_with_test_id(self, test_id):
         locator = self.get_by_test_id(test_id)
         return locator.is_visible()
     

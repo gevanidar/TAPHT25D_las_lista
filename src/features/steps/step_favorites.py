@@ -58,11 +58,10 @@ def step_impl(context):
 def step_impl(context):
     book = get_first_book(context)
     test_id = context.reading_list_page.convert_to_fav_test_id(book)
-    contains = context.reading_list_page.contains_favorite_book(test_id)
-    print(f'{test_id=} is contained {contains=}')
+    contains = context.reading_list_page.contains_favorite_book_with_test_id(test_id)
     assert not contains, f'{test_id} was found in the list'
 
 
 @then("ska jag se en bok med {title} i favoritlistan")
 def step_impl(context, title):
-    assert context.reading_list_page.contains_favorite_book(title), f'book with title: "{title}" was not found in the list'
+    assert context.reading_list_page.contains_favorite_book_title(title), f'book with title: "{title}" was not found in the list'
