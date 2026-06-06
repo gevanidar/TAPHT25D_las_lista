@@ -67,7 +67,6 @@ class ReadingListPage:
     def add_input_author(self, author):
         data_test_id = 'add-input-author'
         self.fill_field_with_test_id(data_test_id, author)
-
         
     # Favorites Page route
     def toggle_mark_favorite(self, test_id):
@@ -83,7 +82,8 @@ class ReadingListPage:
         return 'fav' + test_id[4:]
 
     def contains_favorite_book(self, test_id):
-        return self.contains_row_with_test_id(test_id)
+        locator = self.get_by_test_id(test_id)
+        return locator.is_visible()
     
     # Statistics Page route
     def get_statistics_book_count_text(self):
