@@ -45,7 +45,7 @@
 
 - [X] Write existing functionality as functional requirements.
 - [X] Write down User stories in STORIES.md
-- [ ] Write a feature-fil, step-file for each story.
+- [X] Write a feature-fil, step-file for each story.
 - [X] Use `https://github.com/tap-ht25-testverktyg/08_playwright_bdd` for reference on structure
 - [X] (VG) Write Page-files when needed.
 
