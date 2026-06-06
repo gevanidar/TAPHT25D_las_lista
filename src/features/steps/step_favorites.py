@@ -61,4 +61,4 @@ def step_impl(context):
 
 @then("ska jag se en bok med {title} i favoritlistan")
 def step_impl(context, title):
-    assert context.reading_list_page.contains_favorite_book(book), f'book with title: "{title}" was not found in the list'
+    assert context.reading_list_page.contains_favorite_book(title), f'book with title: "{title}" was not found in the list'
