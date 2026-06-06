@@ -80,8 +80,7 @@ class ReadingListPage:
         return clazz == "star selected"
 
     def convert_to_fav_test_id(self, test_id):
-        _, test_id = test_id.split('-')
-        return 'fav-' + test_id
+        return 'fav-' + test_id[4:]
 
     def contains_favorite_book(self, test_id):
         return self.contains_row_with_test_id(test_id)
