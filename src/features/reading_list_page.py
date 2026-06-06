@@ -79,9 +79,12 @@ class ReadingListPage:
         clazz = row.get_attribute("class")
         return clazz == "star selected"
 
-    def contains_favorite_book(self, book):
-        fav_book_test_id = 'fav' + book[4:]
-        return self.contains_row_with_test_id(fav_book_test_id)
+    def convert_to_fav_test_id(self, test_id):
+        _, book = book.split('-')
+        return 'fav-' + book
+
+    def contains_favorite_book(self, test_id):
+        return self.contains_row_with_test_id(test_id)
     
     # Statistics Page route
     def get_statistics_book_count_text(self):
