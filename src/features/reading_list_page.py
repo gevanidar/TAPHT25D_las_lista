@@ -49,14 +49,9 @@ class ReadingListPage:
     def get_catalog_rows(self):
         return self.page.locator("div.catalog .book")
 
-    def get_catalog_book_count(self): 
-        rows = self.get_catalog_rows()
-        if not rows:
-            return 0
-        return rows.count()
-
     def get_catalog_row(self, i):
-        count = self.get_catalog_book_count()
+        rows = self.get_catalog_rows()
+        count = rows.count()
         if i > count:
             return None
 
@@ -66,7 +61,8 @@ class ReadingListPage:
         return row, inner_row
 
     def get_catalog_last_row(self):
-        count = self.get_catalog_book_count()
+        rows = self.get_catalog_rows()
+        count = rows.count()
 
         i = count - 1
 
