@@ -20,9 +20,9 @@ Feature:
 
 	Scenario:
 		When jag trycker på knappen add-bok
-		And jag fyller i titeln En bra bok
+		And jag fyller i titlen En bra bok
 		And jag fyller i författaren En bra författare
-		And jag trycker på knappend add-submit
+		And jag trycker på knappen add-submit
 		When jag trycker på knappen statistics
  		Then ska jag se statistik texten för antal böcker Listan har 14 böcker.
 		And  ska jag se statistik texten för antal favoritmarkerade böcker Våra användare har hjärtmarkerat 0 böcker. 
@@ -31,9 +31,9 @@ Feature:
 		When jag trycker på knappen favorites
 		And jag klickar på hjärtat
 		When jag trycker på knappen add-bok
-		And jag fyller i titeln En bra bok
+		And jag fyller i titlen En bra bok
 		And jag fyller i författaren En bra författare
-		And jag trycker på knappend add-submit
+		And jag trycker på knappen add-submit
 		And jag trycker på knappen statistics
  		Then ska jag se statistik texten för antal böcker Listan har 14 böcker.
 		And  ska jag se statistik texten för antal favoritmarkerade böcker Våra användare har hjärtmarkerat 1 böcker. 
