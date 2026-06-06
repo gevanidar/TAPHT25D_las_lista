@@ -17,8 +17,10 @@ def step_impl(context, page):
     # TODO: Extract this to the ReadingListPage
     locator = context.reading_list_page.page.locator("main")
     assert locator is not None
+    expect(locator).to_be_visible()
     locator.get_by_text(page)
     assert locator is not None
+    expect(locator).to_be_visible()
 
 
 # TODO: This is actually not the row, this is the heart of the first row.
