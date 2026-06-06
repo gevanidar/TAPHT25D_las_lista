@@ -51,7 +51,7 @@ def step_impl(context):
 def step_impl(context):
     book = get_first_book(context)
     test_id = context.reading_list_page.convert_to_fav_test_id(book)
-    assert context.reading_list_page.contains_favorite_book(test_id), f'{test_id} was not found in the list'
+    assert context.reading_list_page.contains_favorite_book_with_test_id(test_id), f'{test_id} was not found in the list'
 
 
 @then("ska jag inte se boken i listan")
