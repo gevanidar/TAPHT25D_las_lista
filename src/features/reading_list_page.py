@@ -48,6 +48,14 @@ class ReadingListPage:
     # Catalog Page route
     def get_catalog_rows(self):
         return self.page.locator("div.catalog .book")
+
+    def add_input_title(self, title):
+        data_test_id = 'add-input-title'
+        self.fill_field_with_test_id(data_test_id, title)
+
+    def add_input_author(self, author):
+        data_test_id = 'add-input-author'
+        self.fill_field_with_test_id(data_test_id, author)
     
     # Statistics Page route
     def get_statistics_book_count_text(self):

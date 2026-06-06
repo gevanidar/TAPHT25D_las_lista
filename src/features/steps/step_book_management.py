@@ -3,33 +3,25 @@ from behave import when, then
 
 @when("jag fyller i titlen ")
 def step_impl(context):
-    # TODO: Extract this to ReadingListPage
-    data_test_id = "add-input-title"
-    context.reading_list_page.fill_field_with_test_id(data_test_id, "")
+    context.reading_list_page.add_title("")
     context.title = ""
 
 
 @when("jag fyller i författaren ")
 def step_impl(context):
-    # TODO: Extract this to ReadingListPage
-    data_test_id = "add-input-author"
-    context.reading_list_page.fill_field_with_test_id(data_test_id, "")
+    context.add_input_author("")
     context.author = ""
 
 
 @when("jag fyller i titlen {title}")
 def step_impl(context, title):
-    # TODO: Extract this to ReadingListPage
-    data_test_id = "add-input-title"
-    context.reading_list_page.fill_field_with_test_id(data_test_id, title)
+    context.reading_list_page.add_title(title)
     context.title = title
 
 
 @when("jag fyller i författaren {author}")
 def step_impl(context, author):
-    # TODO: Extract this to ReadingListPage
-    data_test_id = "add-input-author"
-    context.reading_list_page.fill_field_with_test_id(data_test_id, author)
+    context.add_input_author(author)
     context.author = author
 
 
