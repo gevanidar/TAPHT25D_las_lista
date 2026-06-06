@@ -49,6 +49,26 @@ class ReadingListPage:
     def get_catalog_rows(self):
         return self.page.locator("div.catalog .book")
 
+    def get_catalog_row(self, i):
+        rows = self.get_catalog_rows()
+        count = rows.count()
+        if i > count:
+            return None
+
+        row = rows.nth(i)
+        inner_row = row.locator('div')
+
+        return row, inner_row
+
+    def get_catalog_last_row(self):
+        rows = self.get_catalog_rows()
+        count = rows.count()
+
+        i = count - 1
+
+        return get_catalog_row(i)
+
+    
     def add_input_title(self, title):
         data_test_id = 'add-input-title'
         self.fill_field_with_test_id(data_test_id, title)
@@ -56,6 +76,8 @@ class ReadingListPage:
     def add_input_author(self, author):
         data_test_id = 'add-input-author'
         self.fill_field_with_test_id(data_test_id, author)
+
+        
     
     # Statistics Page route
     def get_statistics_book_count_text(self):

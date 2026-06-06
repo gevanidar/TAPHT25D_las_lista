@@ -27,12 +27,13 @@ def step_impl(context, author):
 
 @then("bör jag inte kunna trycka på knappen {test_id}")
 def step_impl(context, test_id):
-    # TODO: Extract this to ReadingListPage
     button = context.reading_list_page.get_by_test_id(test_id)
 
     title = context.title
     author = context.author
 
+    # The button is currently only disabled.
+    # The error message is created to determine what input is incorrect.
     error_message = ""
     if not title or len(title) == 0:
         error_message = "title is empty"
@@ -53,11 +54,10 @@ def step_impl(context, title, author):
 
 @then("bör listans sista bok vara {title2} och {author2}")
 def step_impl(context, title2, author2):
-    # TODO: Extract this to ReadingListPage
-    rows = context.reading_list_page.get_catalog_rows()
-    count = rows.count()
-    last_row = rows.nth(count-1)
-    last_row_inner = last_row.locator('div')
+    last_row, last_row_inner = context.reading_list_page.get_catalog_last_row()
+
+    assert last_row is not None
+    assert last_row_inner is not None
 
     row_data_test_id = last_row_inner.get_attribute('data-testid')
     row_book_name = last_row.inner_text()
