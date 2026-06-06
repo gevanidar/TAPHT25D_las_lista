@@ -3,7 +3,7 @@ from behave import when, then
 
 @when("jag fyller i titlen ")
 def step_impl(context):
-    context.reading_list_page.add_title("")
+    context.reading_list_page.add_input_title("")
     context.title = ""
 
 
@@ -15,7 +15,7 @@ def step_impl(context):
 
 @when("jag fyller i titlen {title}")
 def step_impl(context, title):
-    context.reading_list_page.add_title(title)
+    context.reading_list_page.add_input_title(title)
     context.title = title
 
 
