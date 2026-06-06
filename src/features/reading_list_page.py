@@ -23,10 +23,6 @@ class ReadingListPage:
         locator = self.get_by_test_id(test_id)
         locator.fill(text)
 
-    def toggle_mark_favorite(self, test_id):
-        row = self.get_by_test_id(test_id)
-        row.click()
-
     def get_by_test_id(self, test_id):
         return self.page.get_by_test_id(test_id)
 
@@ -35,11 +31,6 @@ class ReadingListPage:
 
     def get_by_text(self, text):
         return self.page.get_by_text(text)
-
-    def is_favorite_marked(self, test_id):
-        row = self.get_by_test_id(test_id)
-        clazz = row.get_attribute("class")
-        return clazz == "star selected"
 
     def contains_row_with_test_id(self, test_id):
         row = self.get_by_test_id(test_id)
@@ -78,6 +69,19 @@ class ReadingListPage:
         self.fill_field_with_test_id(data_test_id, author)
 
         
+    # Favorites Page route
+    def toggle_mark_favorite(self, test_id):
+        row = self.get_by_test_id(test_id)
+        row.click()
+
+    def is_favorite_marked(self, test_id):
+        row = self.get_by_test_id(test_id)
+        clazz = row.get_attribute("class")
+        return clazz == "star selected"
+
+    def contains_favorite_book(self, book):
+        fav_book_test_id = 'fav' + book[4:]
+        return contains_row_with_test_id(fav_book_test_id)
     
     # Statistics Page route
     def get_statistics_book_count_text(self):
