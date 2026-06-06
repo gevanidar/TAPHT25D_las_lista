@@ -1,7 +1,5 @@
 from behave import when, then
 
-from behave.api.pending_step import StepNotImplementedError
-
 
 # TODO: Change the strange feature text, since do we really want to test if the text is correct or the count? 
 @then("ska jag se statistik texten för antal böcker Listan har {count} böcker.")

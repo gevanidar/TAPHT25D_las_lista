@@ -51,7 +51,7 @@ class ReadingListPage:
         return self.get_by_test_id('book-count')
 
     def get_statistics_favorites_text(self):
-        return self.get_by_test_id('stars_count')
+        return self.get_by_test_id('stars-count')
 
     def get_statistics(self):
         book_count_locator = self.get_statistics_book_count_text()
