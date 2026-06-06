@@ -1,6 +1,6 @@
 from behave import when, then
 
-from behave.api.pending_step import StepNotImplementedError
+from playwright.api import expect
 
 
 def get_first_book(context):
