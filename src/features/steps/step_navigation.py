@@ -16,6 +16,7 @@ def step_impl(context, button):
 @then("bör jag se en lista med {count:d} böcker")
 def step_impl(context, count):
     page = context.reading_list_page.page
+    # TODO: Extract this div finder to ReadingListPage
     rows = page.locator("div.catalog .book")
 
     assert count == rows.count()

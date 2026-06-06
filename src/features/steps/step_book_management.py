@@ -1,15 +1,13 @@
 from behave import when, then
 
-from behave.api.pending_step import StepNotImplementedError
-
-
+# TODO: Move this to ReadingListPage
 def get_rows(context):
     page = context.reading_list_page.page
     return page.locator("div.catalog .book")
 
-
 @when("jag fyller i titlen ")
 def step_impl(context):
+    # TODO: Extract this to ReadingListPage
     data_test_id = "add-input-title"
     context.reading_list_page.fill_field_with_test_id(data_test_id, "")
     context.title = ""
@@ -17,6 +15,7 @@ def step_impl(context):
 
 @when("jag fyller i författaren ")
 def step_impl(context):
+    # TODO: Extract this to ReadingListPage
     data_test_id = "add-input-author"
     context.reading_list_page.fill_field_with_test_id(data_test_id, "")
     context.author = ""
@@ -24,6 +23,7 @@ def step_impl(context):
 
 @when("jag fyller i titlen {title}")
 def step_impl(context, title):
+    # TODO: Extract this to ReadingListPage
     data_test_id = "add-input-title"
     context.reading_list_page.fill_field_with_test_id(data_test_id, title)
     context.title = title
@@ -31,6 +31,7 @@ def step_impl(context, title):
 
 @when("jag fyller i författaren {author}")
 def step_impl(context, author):
+    # TODO: Extract this to ReadingListPage
     data_test_id = "add-input-author"
     context.reading_list_page.fill_field_with_test_id(data_test_id, author)
     context.author = author
@@ -38,6 +39,7 @@ def step_impl(context, author):
 
 @then("bör jag inte kunna trycka på knappen {test_id}")
 def step_impl(context, test_id):
+    # TODO: Extract this to ReadingListPage
     button = context.reading_list_page.get_by_test_id(test_id)
 
     title = context.title
@@ -63,6 +65,7 @@ def step_impl(context, title, author):
 
 @then("bör listans sista bok vara {title2} och {author2}")
 def step_impl(context, title2, author2):
+    # TODO: Extract this to ReadingListPage
     rows = get_rows(context)
     count = rows.count()
     last_row = rows.nth(count-1)

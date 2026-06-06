@@ -4,6 +4,7 @@ from behave.api.pending_step import StepNotImplementedError
 
 
 def get_first_book(context):
+    # TODO: Extract this to the ReadingListPage
     initial_state = context.initial_state
     books = initial_state.get_books()
     if books and len(books) > 0:
@@ -13,6 +14,7 @@ def get_first_book(context):
 
 @given("att jag står på sidan {page}")
 def step_impl(context, page):
+    # TODO: Extract this to the ReadingListPage
     locator = context.reading_list_page.page.locator("main")
     assert locator is not None
     locator.get_by_text(page)
@@ -22,6 +24,7 @@ def step_impl(context, page):
 # TODO: This is actually not the row, this is the heart of the first row.
 @when("jag markerar en rad")
 def step_impl(context):
+    # TODO: Extract this to the ReadingListPage
     book = get_first_book(context)
     locator = context.reading_list_page.get_by_test_id(book)
     locator.hover()
@@ -65,4 +68,5 @@ def step_impl(context):
 
 @then("ska jag se en bok med {title} i favoritlistan")
 def step_impl(context, title):
+    # TODO: Extract this to the ReadingListPage
     assert context.reading_list_page.contains_row_with_test_id(title)

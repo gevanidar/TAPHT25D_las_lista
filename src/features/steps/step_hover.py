@@ -4,6 +4,7 @@ from behave.api.pending_step import StepNotImplementedError
 
 
 def get_first_book(context):
+    # TODO: Should this be fixed? Or hack ok to use for testing?
     initial_state = context.initial_state
     books = initial_state.get_books()
     if books and len(books) > 0:
@@ -16,6 +17,7 @@ def step_impl(context):
     # book = get_first_book(context)
     # locator = context.reading_list_page.get_by_test_id(book)
 
+    # TODO: Extract this to ReadingListPage
     page = context.reading_list_page.page
     rows = page.locator("div.catalog .book")
 
@@ -42,6 +44,7 @@ def step_impl(context):
 
 @then("ska en raden visuellt förtydligas")
 def step_impl(context):
+    # TODO: Extract this to ReadingListPage
     n = 0
     color = context.colors[n]
     original_color = context.original_colors[n]
