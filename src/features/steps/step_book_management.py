@@ -9,7 +9,7 @@ def step_impl(context):
 
 @when("jag fyller i författaren ")
 def step_impl(context):
-    context.add_input_author("")
+    context.reading_list_page.add_input_author("")
     context.author = ""
 
 
@@ -21,7 +21,7 @@ def step_impl(context, title):
 
 @when("jag fyller i författaren {author}")
 def step_impl(context, author):
-    context.add_input_author(author)
+    context.reading_list_page.add_input_author(author)
     context.author = author
 
 
