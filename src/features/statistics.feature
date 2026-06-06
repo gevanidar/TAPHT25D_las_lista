@@ -12,7 +12,7 @@ Feature:
 		And  ska jag se statistik texten för antal favoritmarkerade böcker Våra användare har hjärtmarkerat 0 böcker. 
 
 	Scenario:
-		When jag trycker på knappen favorites
+		When jag trycker på knappen catalog
 		And jag klickar på hjärtat
 		And jag trycker på knappen statistics
  		Then ska jag se statistik texten för antal böcker Listan har 13 böcker.
@@ -28,7 +28,7 @@ Feature:
 		And  ska jag se statistik texten för antal favoritmarkerade böcker Våra användare har hjärtmarkerat 0 böcker. 
 
 	Scenario:
-		When jag trycker på knappen favorites
+		When jag trycker på knappen catalog
 		And jag klickar på hjärtat
 		When jag trycker på knappen add-book
 		And jag fyller i titlen En bra bok
