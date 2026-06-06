@@ -60,8 +60,8 @@ class ReadingListPage:
         book_count_text = book_count_locator.inner_text();
         favorite_count_text = favorite_count_locator.inner_text();
 
-        book_count = int(book_count_text.replace('Listan har ', '').replace(' böcker', ''))
-        favorite_count = int(favorite_count_text.replace('Våra användare har hjärtmarkerat ', '').replace(' böcker', ''))
+        book_count = int(book_count_text.replace('Listan har ', '').replace(' böcker.', ''))
+        favorite_count = int(favorite_count_text.replace('Våra användare har hjärtmarkerat ', '').replace(' böcker.', ''))
 
         print(f"{book_count_text=}\n{favorite_count_text=}\n{book_count=}\n{favorite_count=}\n")
 
