@@ -45,6 +45,9 @@ class ReadingListPage:
         row = self.get_by_test_id(test_id)
         return row is not None
 
+    # Catalog Page route
+    def get_catalog_rows(self):
+        return self.page.locator("div.catalog .book")
     
     # Statistics Page route
     def get_statistics_book_count_text(self):

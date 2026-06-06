@@ -1,9 +1,5 @@
 from behave import when, then
 
-# TODO: Move this to ReadingListPage
-def get_rows(context):
-    page = context.reading_list_page.page
-    return page.locator("div.catalog .book")
 
 @when("jag fyller i titlen ")
 def step_impl(context):
@@ -66,7 +62,7 @@ def step_impl(context, title, author):
 @then("bör listans sista bok vara {title2} och {author2}")
 def step_impl(context, title2, author2):
     # TODO: Extract this to ReadingListPage
-    rows = get_rows(context)
+    rows = context.reading_list_page.get_catalog_rows()
     count = rows.count()
     last_row = rows.nth(count-1)
     last_row_inner = last_row.locator('div')
