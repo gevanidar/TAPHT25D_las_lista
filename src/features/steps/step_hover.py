@@ -21,7 +21,6 @@ def get_first_book(context):
 @when("jag hovrar över en rad")
 def step_impl(context):
     """Step for when a user hovers over a boo row in the catalog."""
-
     rows = context.reading_list_page.get_catalog_rows()
 
     count = rows.count()
@@ -46,7 +45,7 @@ def step_impl(context):
 
 
 def validate_color_on_row_hover(context, n, expected):
-    """Helper function for validating the color on a row."""
+    """Validate the color on a row."""
     color = context.colors[n]
     original_color = context.original_colors[n]
 
