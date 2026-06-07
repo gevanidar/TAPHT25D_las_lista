@@ -2,6 +2,10 @@ from behave import when, then
 
 from behave.api.pending_step import StepNotImplementedError
 
+def evaluate_color(row):
+    if not row:
+        return None
+    return row.evaluate("el => window.getComputedStyle(el).backgroundColor")
 
 def get_first_book(context):
     # TODO: Should this be fixed? Or hack ok to use for testing?
@@ -17,35 +21,27 @@ def step_impl(context):
     # book = get_first_book(context)
     # locator = context.reading_list_page.get_by_test_id(book)
 
-    # TODO: Extract this to ReadingListPage
-    page = context.reading_list_page.page
-    rows = page.locator("div.catalog .book")
+    rows = context.reading_list_page.get_catalog_rows()
 
-    n = 0
     colors = []
     original_colors = []
     for n in range(2):
         row = rows.nth(n)
-        original_color = row.evaluate(
-            "el => window.getComputedStyle(el).backgroundColor"
-        )
-        if not original_colors:
-            original_colors = []
+
+        original_color = evaluate_color(row)
         original_colors.append(original_color)
+
         row.hover()
         page.wait_for_timeout(500)
-        color = row.evaluate("el => window.getComputedStyle(el).backgroundColor")
-        if not colors:
-            colors = []
+
+        color  = evaluate_color(row)
+
         colors.append(color)
+
     context.original_colors = original_colors
     context.colors = colors
 
-
-@then("ska en raden visuellt förtydligas")
-def step_impl(context):
-    # TODO: Extract this to ReadingListPage
-    n = 0
+def validate_color(context, n):
     color = context.colors[n]
     original_color = context.original_colors[n]
 
@@ -55,12 +51,12 @@ def step_impl(context):
     assert color != original_color, "The hover had no effect on color"
     assert color == "rgb(229, 190, 149)", "Incorrect hover color for first row"
 
-    n = 1
-    color = context.colors[n]
-    original_color = context.original_colors[n]
 
-    assert (
-        color != "rgb(0, 0, 0, 0)"
-    ), "Incorrect selection of element which has hover effect."
-    assert color != original_color, "The hover had no effect on color"
-    assert color == "rgb(201, 198, 187)", "Incorrect hover color for first row"
+@then("ska en raden visuellt förtydligas")
+def step_impl(context):
+    # TODO: Extract this to ReadingListPage
+    n = 0
+    validate_color(context, n)
+
+    n = 1
+    validate_color(context, n)

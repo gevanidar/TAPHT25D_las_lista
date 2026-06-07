@@ -58,8 +58,8 @@ class ReadingListPage:
         i = count - 1
 
         return self.get_catalog_row(i)
-
     
+    # Add book Page route
     def add_input_title(self, title):
         data_test_id = 'add-input-title'
         self.fill_field_with_test_id(data_test_id, title)
