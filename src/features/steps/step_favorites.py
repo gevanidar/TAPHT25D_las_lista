@@ -32,7 +32,6 @@ def step_impl(context):
 def step_impl(context):
     """Handle the hover on the catalog page."""
     row, _= context.reading_list_page.get_catalog_last_row()
-    print(f'{row=}')
     row.hover()
 
 
@@ -45,7 +44,8 @@ def step_impl(context):
 @when("jag klickar på rad {i} hjärtat")
 def step_impl(context, i):
     """Handle the click on a heart, marking a book (row) as favorite."""
-    row, _= context.reading_list_page.get_catalog_row(i-1)
+    i = int(i) - 1
+    row, _= context.reading_list_page.get_catalog_row(i)
     book = row.get_attribute('data-testid')
     locator = context.reading_list_page.toggle_mark_favorite(book)
 
