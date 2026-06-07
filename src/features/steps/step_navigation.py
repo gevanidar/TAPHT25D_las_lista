@@ -12,7 +12,7 @@ def step_impl(context):
 @when("jag trycker på knappen {button}")
 def step_impl(context, button):
     """Step for clicking on a button."""
-    locator = context.reading_list_page.click_button_with_test_id(button)
+    context.reading_list_page.click_button_with_test_id(button)
 
 
 @then("bör jag se en lista med {count:d} böcker")

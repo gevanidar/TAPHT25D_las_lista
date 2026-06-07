@@ -28,10 +28,11 @@ def step_impl(context):
     locator = context.reading_list_page.get_by_test_id(book)
     locator.hover()
 
+
 @when("jag markerar sista raden")
 def step_impl(context):
     """Handle the hover on the catalog page."""
-    row, _= context.reading_list_page.get_catalog_last_row()
+    row, _ = context.reading_list_page.get_catalog_last_row()
     row.hover()
 
 
@@ -39,15 +40,17 @@ def step_impl(context):
 def step_impl(context):
     """Handle the click on a heart, marking a book (row) as favorite."""
     book = get_first_book(context)
-    locator = context.reading_list_page.toggle_mark_favorite(book)
+    context.reading_list_page.toggle_mark_favorite(book)
+
 
 @when("jag klickar på rad {i} hjärtat")
 def step_impl(context, i):
     """Handle the click on a heart, marking a book (row) as favorite."""
     i = int(i) - 1
-    _, row= context.reading_list_page.get_catalog_row(i)
-    book = row.get_attribute('data-testid')
-    locator = context.reading_list_page.toggle_mark_favorite(book)
+    _, row = context.reading_list_page.get_catalog_row(i)
+    book = row.get_attribute("data-testid")
+    context.reading_list_page.toggle_mark_favorite(book)
+
 
 @then("ska boken favoritmarkeras")
 def step_impl(context):
@@ -87,9 +90,9 @@ def step_impl(context):
 @then("ska jag se en bok med {title} i favoritlistan")
 def step_impl(context, title):
     """Validate for checking that a specific book is marked as a favorite."""
-    test_id = context.reading_list_page.convert_to_fav_test_id(title)
-    locator = context.reading_list_page.get_by_test_id(test_id)
-    text = locator.inner_text()
+    #test_id = context.reading_list_page.convert_to_fav_test_id(title)
+    #locator = context.reading_list_page.get_by_test_id(test_id)
+    #text = locator.inner_text()
     assert context.reading_list_page.contains_favorite_book_title(
         title
     ), f'book with title: "{title}" was not found in the list'

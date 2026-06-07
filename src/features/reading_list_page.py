@@ -122,12 +122,12 @@ class ReadingListPage:
         i = count - 1
 
         return self.get_favorite_row(i)
-    
+
     def convert_to_fav_test_id(self, test_id):
         """Convert the default test id to favorite test id."""
-        if test_id[:5] == 'star-':
+        if test_id[:5] == "star-":
             return "fav" + test_id[4:]
-        return 'fav-' + test_id
+        return "fav-" + test_id
 
     def contains_favorite_book_title(self, text):
         """Check if the favorite book title is visible."""

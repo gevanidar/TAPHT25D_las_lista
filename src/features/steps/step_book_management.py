@@ -33,7 +33,7 @@ def step_impl(context, author):
 
 @then("bör jag inte kunna trycka på knappen {test_id}")
 def step_impl(context, test_id):
-    """Step for checking that it is not possible to add a book without filling in the required fields."""
+    """Validate that it is not possible to add a book without filling in the required fields."""
     button = context.reading_list_page.get_by_test_id(test_id)
 
     title = context.title

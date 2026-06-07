@@ -13,7 +13,7 @@ def before_all(context):
     context.browser = context.browser_type.launch(headless=True)
 
 
-def before_scenario(context, scenario):
+def before_scenario(context, _scenario):
     """Set scenario specific context."""
     page = context.browser.new_page()
     reading_list_page = ReadingListPage(page)
@@ -21,7 +21,7 @@ def before_scenario(context, scenario):
     context.initial_state = InitialState()
 
 
-def after_scenario(context, scenario):
+def after_scenario(context, _scenario):
     """Reset between scenarios."""
     page = context.reading_list_page.page
     if page:
