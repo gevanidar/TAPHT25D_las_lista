@@ -2,6 +2,7 @@
 
 class ReadingListPage:
     """Page class for the Reading List page."""
+
     def __init__(self, page):
         """Initialize the page, the base url and a timeout."""
         self.page = page
@@ -100,7 +101,7 @@ class ReadingListPage:
 
     def contains_favorite_book_title(self, text):
         """Check if the favorite book title is visible."""
-        locator self.get_by_text(text)
+        locator = self.get_by_text(text)
         return locator.is_visible()
 
     def contains_favorite_book_with_test_id(self, test_id):
