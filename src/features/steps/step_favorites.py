@@ -32,6 +32,7 @@ def step_impl(context):
 def step_impl(context):
     """Handle the hover on the catalog page."""
     row, _= context.reading_list_page.get_catalog_last_row()
+    print(f'{row=}')
     row.hover()
 
 
