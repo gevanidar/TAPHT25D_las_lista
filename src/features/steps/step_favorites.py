@@ -45,7 +45,7 @@ def step_impl(context):
 def step_impl(context, i):
     """Handle the click on a heart, marking a book (row) as favorite."""
     i = int(i) - 1
-    row, _= context.reading_list_page.get_catalog_row(i)
+    _, row= context.reading_list_page.get_catalog_row(i)
     book = row.get_attribute('data-testid')
     print(f'{i=}\n{row=}\n{book=}')
     locator = context.reading_list_page.toggle_mark_favorite(book)
