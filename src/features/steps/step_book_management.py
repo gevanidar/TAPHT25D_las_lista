@@ -56,7 +56,7 @@ def step_impl(context, test_id):
 def step_impl(context, title, author):
     """Step for validating that the list contains the book."""
     book_name = f'"{title}", {author}'
-    assert context.reading_list_page.contains_row_with_test_id(book_name)
+    assert context.reading_list_page.contains_test_id(book_name)
 
 
 @then("bör listans sista bok vara {title2} och {author2}")

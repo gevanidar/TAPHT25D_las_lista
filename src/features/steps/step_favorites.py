@@ -37,7 +37,7 @@ def step_impl(context):
 
 @then("ska boken favoritmarkeras")
 def step_impl(context):
-    """Validation for checking that the book is actually marked as a favorite."""
+    """Validate for checking that the book is actually marked as a favorite."""
     book = get_first_book(context)
     is_favorite = context.reading_list_page.is_favorite_marked(book)
     assert is_favorite
@@ -45,7 +45,7 @@ def step_impl(context):
 
 @then("ska boken avfavoritmarkeras")
 def step_impl(context):
-    """Validation for checking that the book is no longer martked as a favorite."""
+    """Validate for checking that the book is no longer martked as a favorite."""
     book = get_first_book(context)
     is_favorite = context.reading_list_page.is_favorite_marked(book)
     assert not is_favorite
@@ -72,7 +72,7 @@ def step_impl(context):
 
 @then("ska jag se en bok med {title} i favoritlistan")
 def step_impl(context, title):
-    """Validation for checking that a specific book is marked as a favorite."""
+    """Validate for checking that a specific book is marked as a favorite."""
     assert context.reading_list_page.contains_favorite_book_title(
         title
     ), f'book with title: "{title}" was not found in the list'
