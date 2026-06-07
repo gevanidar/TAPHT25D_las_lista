@@ -74,6 +74,11 @@ def step_impl(context):
 @then("ska jag se en bok med {title} i favoritlistan")
 def step_impl(context, title):
     """Validate for checking that a specific book is marked as a favorite."""
+    book = get_first_book(context)
+    test_id = context.reading_list_page.convert_to_fav_test_id(book)
+    locator = context.reading_list_page.get_by_test_id(test_id)
+    text = locator.inner_text()
+    print(f'{text=}\n{title=}')
     assert context.reading_list_page.contains_favorite_book_title(
         title
     ), f'book with title: "{title}" was not found in the list'
