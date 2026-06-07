@@ -1,4 +1,5 @@
 """Tests forn the statistics page."""
+
 from behave import when, then
 
 

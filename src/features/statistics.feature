@@ -8,8 +8,8 @@ Feature:
 	
 	Scenario:
 		When jag trycker på knappen statistics
- 		Then ska jag se statistik för antal böcker Listan har 13 böcker.
-		And  ska jag se statistik för antal favoritmarkerade böcker Våra användare har hjärtmarkerat 0 böcker. 
+ 		Then ska jag se statistik för antal böcker 13
+		And  ska jag se statistik för antal favoritmarkerade böcker 0
 
 	Scenario:
 		When jag trycker på knappen catalog

@@ -1,5 +1,7 @@
 """Test navigation on the home page."""
+
 from behave import when, then
+
 
 @given("att jag är på hemsidan")
 def step_impl(context):

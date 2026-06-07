@@ -1,4 +1,5 @@
 """Step module for testing the hover effect on rows in the catalog."""
+
 from behave import when, then
 
 
@@ -53,7 +54,7 @@ def validate_color_on_row_hover(context, n, expected):
         color != "rgb(0, 0, 0, 0)"
     ), "Incorrect selection of element which has hover effect."
     assert color != original_color, "The hover had no effect on color"
-    assert color == expected , "Incorrect hover color for first row"
+    assert color == expected, "Incorrect hover color for first row"
 
 
 @then("ska en raden visuellt förtydligas")
@@ -62,5 +63,5 @@ def step_impl(context):
     expected_alternating = ["rgb(229, 190, 149)", "rgb(201, 198, 187)"]
     count = context.count
     for n in range(count):
-        expected = expected_alternating[n%2]
+        expected = expected_alternating[n % 2]
         validate_color_on_row_hover(context, n, expected)

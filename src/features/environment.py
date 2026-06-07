@@ -1,4 +1,5 @@
 """Environment setup for behave."""
+
 from playwright.sync_api import sync_playwright
 
 from reading_list_page import ReadingListPage

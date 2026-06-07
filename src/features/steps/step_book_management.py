@@ -1,4 +1,5 @@
 """Tests for checking that the book management works."""
+
 from behave import when, then
 
 

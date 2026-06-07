@@ -1,5 +1,6 @@
 """Page class for the Reading List page."""
 
+
 class ReadingListPage:
     """Page class for the Reading List page."""
 
