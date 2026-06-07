@@ -56,6 +56,7 @@ class ReadingListPage:
 
         rows = self.get_catalog_rows()
         count = rows.count()
+        print(f'{count=}\n{rows=}\n{i=}')
         if i > count:
             return None
 
