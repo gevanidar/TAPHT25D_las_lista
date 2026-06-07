@@ -32,8 +32,7 @@ def step_impl(context):
 def step_impl(context):
     """Handle the hover on the catalog page."""
     row = context.reading_list_page.get_catalog_last_row()
-    print(f'{row=}')
-    locator.hover()
+    row.hover()
 
 
 @when("jag klickar på hjärtat")
