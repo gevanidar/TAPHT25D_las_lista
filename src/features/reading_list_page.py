@@ -47,7 +47,7 @@ class ReadingListPage:
             return None
 
         row = rows.nth(i)
-        inner_row = row.locator('div')
+        inner_row = row.locator("div")
 
         return row, inner_row
 
@@ -58,16 +58,16 @@ class ReadingListPage:
         i = count - 1
 
         return self.get_catalog_row(i)
-    
+
     # Add book Page route
     def add_input_title(self, title):
-        data_test_id = 'add-input-title'
+        data_test_id = "add-input-title"
         self.fill_field_with_test_id(data_test_id, title)
 
     def add_input_author(self, author):
-        data_test_id = 'add-input-author'
+        data_test_id = "add-input-author"
         self.fill_field_with_test_id(data_test_id, author)
-        
+
     # Favorites Page route
     def toggle_mark_favorite(self, test_id):
         row = self.get_by_test_id(test_id)
@@ -79,7 +79,7 @@ class ReadingListPage:
         return clazz == "star selected"
 
     def convert_to_fav_test_id(self, test_id):
-        return 'fav' + test_id[4:]
+        return "fav" + test_id[4:]
 
     def contains_favorite_book_title(self, text):
         return self.get_by_text(text)
@@ -87,25 +87,32 @@ class ReadingListPage:
     def contains_favorite_book_with_test_id(self, test_id):
         locator = self.get_by_test_id(test_id)
         return locator.is_visible()
-    
+
     # Statistics Page route
     def get_statistics_book_count_text(self):
-        return self.get_by_test_id('book-count')
+        return self.get_by_test_id("book-count")
 
     def get_statistics_favorites_text(self):
-        return self.get_by_test_id('stars-count')
+        return self.get_by_test_id("stars-count")
 
     def get_statistics(self):
         book_count_locator = self.get_statistics_book_count_text()
         favorite_count_locator = self.get_statistics_favorites_text()
 
-        book_count_text = book_count_locator.inner_text();
-        favorite_count_text = favorite_count_locator.inner_text();
+        book_count_text = book_count_locator.inner_text()
+        favorite_count_text = favorite_count_locator.inner_text()
 
-        book_count = int(book_count_text.replace('Listan har ', '').replace(' böcker.', ''))
-        favorite_count = int(favorite_count_text.replace('Våra användare har hjärtmarkerat ', '').replace(' böcker.', ''))
+        book_count = int(
+            book_count_text.replace("Listan har ", "").replace(" böcker.", "")
+        )
+        favorite_count = int(
+            favorite_count_text.replace(
+                "Våra användare har hjärtmarkerat ", ""
+            ).replace(" böcker.", "")
+        )
 
-        print(f"{book_count_text=}\n{favorite_count_text=}\n{book_count=}\n{favorite_count=}\n")
+        print(
+            f"{book_count_text=}\n{favorite_count_text=}\n{book_count=}\n{favorite_count=}\n"
+        )
 
         return book_count, favorite_count
-

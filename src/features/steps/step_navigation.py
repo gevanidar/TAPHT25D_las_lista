@@ -12,11 +12,13 @@ def step_impl(context):
 def step_impl(context, button):
     locator = context.reading_list_page.click_button_with_test_id(button)
 
+
 @then("bör jag se en lista med {count:d} böcker")
 def step_impl(context, count):
     rows = context.reading_list_page.get_catalog_rows()
 
     assert count == rows.count()
+
 
 @then("bör jag se en div med {div_class}")
 def step_impl(context, div_class):

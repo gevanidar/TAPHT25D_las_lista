@@ -59,11 +59,15 @@ def step_impl(context, title2, author2):
     assert last_row is not None
     assert last_row_inner is not None
 
-    row_data_test_id = last_row_inner.get_attribute('data-testid')
+    row_data_test_id = last_row_inner.get_attribute("data-testid")
     row_book_name = last_row.inner_text()
 
-    expected_data_test_id = f'star-{title2}'
-    assert expected_data_test_id == row_data_test_id, f"{expected_data_test_id} is not last in the list, {row_data_test_id} is."
+    expected_data_test_id = f"star-{title2}"
+    assert (
+        expected_data_test_id == row_data_test_id
+    ), f"{expected_data_test_id} is not last in the list, {row_data_test_id} is."
 
     expected_book_name = f'❤️"{title2}", {author2}'
-    assert expected_book_name == row_book_name, f"{expected_book_name} is not last in the list, {row_book_name} is."
+    assert (
+        expected_book_name == row_book_name
+    ), f"{expected_book_name} is not last in the list, {row_book_name} is."

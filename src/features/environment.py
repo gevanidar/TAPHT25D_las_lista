@@ -3,6 +3,7 @@ from playwright.sync_api import sync_playwright
 from reading_list_page import ReadingListPage
 from initial_state import InitialState
 
+
 # Runs before any scenarios
 def before_all(context):
     # Start Playwright and the browser - close it in after_all

@@ -2,10 +2,12 @@ from behave import when, then
 
 from behave.api.pending_step import StepNotImplementedError
 
+
 def evaluate_color(row):
     if not row:
         return None
     return row.evaluate("el => window.getComputedStyle(el).backgroundColor")
+
 
 def get_first_book(context):
     initial_state = context.initial_state
@@ -33,12 +35,13 @@ def step_impl(context):
         row.hover()
         page.wait_for_timeout(500)
 
-        color  = evaluate_color(row)
+        color = evaluate_color(row)
 
         colors.append(color)
 
     context.original_colors = original_colors
     context.colors = colors
+
 
 def validate_color_on_row_hover(context, n):
     color = context.colors[n]

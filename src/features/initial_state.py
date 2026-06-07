@@ -1,10 +1,11 @@
-'''Helper class for managing the initialte state of the reading list.'''
+"""Helper class for managing the initialte state of the reading list."""
+
 
 class InitialState:
-    '''Initialize the initial state of the reading list'''
+    """Initialize the initial state of the reading list"""
 
     def __init__(self):
-        '''Initialize the initial data test ids for the reading list'''
+        """Initialize the initial data test ids for the reading list"""
         book_0 = "star-Ormar på ett plan: En Python-berättelse"
         book_1 = "star-The Pragmatic Procrastinator"
         book_2 = "star-Python för folk som hatar ormar"
@@ -35,5 +36,5 @@ class InitialState:
         ]
 
     def get_books(self):
-        '''Return the data test id for the books.'''
+        """Return the data test id for the books."""
         return self.books
