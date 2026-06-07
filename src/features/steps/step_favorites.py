@@ -23,15 +23,15 @@ def step_impl(context, page):
 
 @when("jag markerar en rad")
 def step_impl(context):
-    """Handle the hover on the favorite page."""
+    """Handle the hover on the catalog page."""
     book = get_first_book(context)
     locator = context.reading_list_page.get_by_test_id(book)
     locator.hover()
 
 @when("jag markerar sista raden")
 def step_impl(context):
-    """Handle the hover on the favorite page."""
-    locator = context.reading_list_page.get_favorite_last_row()
+    """Handle the hover on the catalog page."""
+    row = context.reading_list_page.get_catalog_last_row()
     locator.hover()
 
 
