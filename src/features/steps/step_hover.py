@@ -8,7 +8,6 @@ def evaluate_color(row):
     return row.evaluate("el => window.getComputedStyle(el).backgroundColor")
 
 def get_first_book(context):
-    # TODO: Should this be fixed? Or hack ok to use for testing?
     initial_state = context.initial_state
     books = initial_state.get_books()
     if books and len(books) > 0:
@@ -41,7 +40,7 @@ def step_impl(context):
     context.original_colors = original_colors
     context.colors = colors
 
-def validate_color(context, n):
+def validate_color_on_row_hover(context, n):
     color = context.colors[n]
     original_color = context.original_colors[n]
 
@@ -54,9 +53,5 @@ def validate_color(context, n):
 
 @then("ska en raden visuellt förtydligas")
 def step_impl(context):
-    # TODO: Extract this to ReadingListPage
-    n = 0
-    validate_color(context, n)
-
-    n = 1
-    validate_color(context, n)
+    for n in range(2):
+        validate_color_on_row_hover(context, n)
