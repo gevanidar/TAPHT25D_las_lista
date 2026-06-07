@@ -8,15 +8,15 @@ Feature:
 	
 	Scenario:
 		When jag trycker på knappen statistics
- 		Then ska jag se statistik texten för antal böcker Listan har 13 böcker.
-		And  ska jag se statistik texten för antal favoritmarkerade böcker Våra användare har hjärtmarkerat 0 böcker. 
+ 		Then ska jag se statistik för antal böcker Listan har 13 böcker.
+		And  ska jag se statistik för antal favoritmarkerade böcker Våra användare har hjärtmarkerat 0 böcker. 
 
 	Scenario:
 		When jag trycker på knappen catalog
 		And jag klickar på hjärtat
 		And jag trycker på knappen statistics
- 		Then ska jag se statistik texten för antal böcker Listan har 13 böcker.
-		And  ska jag se statistik texten för antal favoritmarkerade böcker Våra användare har hjärtmarkerat 1 böcker. 
+ 		Then ska jag se statistik för antal böcker 13
+		And  ska jag se statistik för antal favoritmarkerade böcker 1
 
 	Scenario:
 		When jag trycker på knappen add-book
@@ -24,8 +24,8 @@ Feature:
 		And jag fyller i författaren En bra författare
 		And jag trycker på knappen add-submit
 		When jag trycker på knappen statistics
- 		Then ska jag se statistik texten för antal böcker Listan har 14 böcker.
-		And  ska jag se statistik texten för antal favoritmarkerade böcker Våra användare har hjärtmarkerat 0 böcker. 
+ 		Then ska jag se statistik för antal böcker 14
+		And  ska jag se statistik för antal favoritmarkerade böcker 0
 
 	Scenario:
 		When jag trycker på knappen catalog
@@ -35,6 +35,6 @@ Feature:
 		And jag fyller i författaren En bra författare
 		And jag trycker på knappen add-submit
 		And jag trycker på knappen statistics
- 		Then ska jag se statistik texten för antal böcker Listan har 14 böcker.
-		And  ska jag se statistik texten för antal favoritmarkerade böcker Våra användare har hjärtmarkerat 1 böcker. 
+ 		Then ska jag se statistik för antal böcker 14
+		And  ska jag se statistik för antal favoritmarkerade böcker 1
 
