@@ -98,7 +98,7 @@ class ReadingListPage:
     # Favorites Page route
     def convert_to_fav_test_id(self, test_id):
         """Convert the default test id to favorite test id."""
-        if test_id[:5] == 'star-'
+        if test_id[:5] == 'star-':
             return "fav" + test_id[4:]
         return 'fav-' + test_id
 
