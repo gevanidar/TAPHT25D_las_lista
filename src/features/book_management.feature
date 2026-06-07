@@ -48,6 +48,6 @@ Feature: Book management
 		And jag trycker på knappen add-submit
 		And jag trycker på knappen catalog
 		And jag markerar sista raden
-		And jag klickar på hjärtat
+		And jag klickar på rad 14 hjärtat
 		And jag trycker på knappen favorites
 		Then ska jag se en bok med En bra bok i favoritlistan
