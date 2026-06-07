@@ -31,7 +31,7 @@ def step_impl(context):
 @when("jag markerar sista raden")
 def step_impl(context):
     """Handle the hover on the catalog page."""
-    row = context.reading_list_page.get_catalog_last_row()
+    row, _= context.reading_list_page.get_catalog_last_row()
     row.hover()
 
 
