@@ -47,6 +47,7 @@ def step_impl(context, i):
     i = int(i) - 1
     row, _= context.reading_list_page.get_catalog_row(i)
     book = row.get_attribute('data-testid')
+    print(f'{i=}\n{row=}\n{book=}')
     locator = context.reading_list_page.toggle_mark_favorite(book)
 
 @then("ska boken favoritmarkeras")
