@@ -5,21 +5,25 @@ import pytest
 from reading_list.book import Book
 from reading_list.favorite_books import FavoriteBooks
 
+
 # Arrange
 @pytest.fixture(name="author")
 def setup_author():
     """Author fixture."""
     return "Kung Kobra"
 
+
 @pytest.fixture(name="title")
 def setup_title():
     """Title fixture."""
     return "Min lilla bok om python"
 
+
 @pytest.fixture(name="book")
 def setup_book(author, title):
     """Book fixture."""
     return Book(author, title)
+
 
 @pytest.mark.unit
 def test_add_favorite_book(book: Book):
@@ -38,6 +42,7 @@ def test_add_favorite_book(book: Book):
     favorite_book_id = book_ids[0]
 
     assert favorite_book_id == book.book_id
+
 
 @pytest.mark.unit
 def test_add_favorite_book_to_favorite_list_containing_another_book(book):
@@ -88,6 +93,7 @@ def test_add_favorite_book_already_in_favorite_books_list(book):
 
     assert favorite_book_id == book.book_id
 
+
 @pytest.mark.unit
 def test_remove_favorite_book(book):
     """Test removing a book to favorite books."""
@@ -106,6 +112,7 @@ def test_remove_favorite_book(book):
     count = len(book_ids)
     assert count == 0
 
+
 @pytest.mark.unit
 def test_remove_favorite_book_from_empty_list(book):
     """Test removing a book to favorite books."""
@@ -121,8 +128,11 @@ def test_remove_favorite_book_from_empty_list(book):
     count = len(book_ids)
     assert count == 0
 
+
 @pytest.mark.unit
-def test_remove_present_favorite_after_adding_new_favorite_removes_old_favorite_and_keeps_new(book):
+def test_remove_present_favorite_after_adding_new_favorite_removes_old_favorite_and_keeps_new(
+    book,
+):
     """Test addind a new book the favorite books when another book is already present in list.
     Then remove the old favorite book."""
     favorite_books = FavoriteBooks()

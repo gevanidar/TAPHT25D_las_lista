@@ -3,6 +3,7 @@
 from .book import Book
 from .favorite_books import FavoriteBooks
 
+
 class BookStore:
     """A book store contains a list over available books."""
 

@@ -9,17 +9,17 @@
 ## 
 
 - [X] Skapa filerna README.md, STORIES.md och ANSWERS.md i projektets rotmapp.
-- [ ] Make repository public.
+- [X] Make repository public.
 - [X] Create `requirements.txt`
 - [ ] Update README.md with infromation about what has been tested.
-- [ ] Update README.md with infromation about how to start the project.
+- [X] Update README.md with infromation about how to start the project.
 
 
 ## Backend
 
-- [ ] Unit tests for all methods
-- [ ] Integration test for all classes
-- [ ] Develop the backend code from the tests using TDD.
+- [X] Unit tests for all methods
+- [X] Integration test for all classes
+- [X] Develop the backend code from the tests using TDD.
 
 
 ### Classes
@@ -28,31 +28,35 @@
     - [X] `addBook(author, title)`
     - [X] `toggleFavorite(book_id)`
 
-- [ ] `FavoriteBooks`
-    - [ ] `add(book)`
-    - [ ] `remove(book)`
+- [X] `FavoriteBooks`
+    - [X] `add(book)`
+    - [X] `remove(book)`
 
 ### Extra classes
 
 - [X] `Book`
 
 
-
 ## Teorifrågor
 
-- [ ] Answer all the theoretical questions in the file ANSWERS.md.
+- [X] Answer all the theoretical questions in the file ANSWERS.md.
 
 ## Frontend
 
-- [ ] Write existing functionality as functional requirements./
-- [ ] Write down User stories in STORIES.md
-- [ ] Write a feature-fil, step-file for each story.
-- [ ] (VG) Write Page-files when needed.
+- [X] Write existing functionality as functional requirements.
+- [X] Write down User stories in STORIES.md
+- [X] Write a feature-fil, step-file for each story.
+- [X] Use `https://github.com/tap-ht25-testverktyg/08_playwright_bdd` for reference on structure
+- [X] (VG) Write Page-files when needed.
 
 
 ## CI
 
 - [ ] Implement CI for the project, the CI should run all tests when pushing to the main branch. (Use a headless browser)
+
+## Refactor
+
+- [ ] (VG) Refactor the code so that functions are reused
 
 --- 
 
