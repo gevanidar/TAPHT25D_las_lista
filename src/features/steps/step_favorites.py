@@ -28,7 +28,7 @@ def step_impl(context):
     locator = context.reading_list_page.get_by_test_id(book)
     locator.hover()
 
-@when("jag markerar sista rad")
+@when("jag markerar sista raden")
 def step_impl(context):
     """Handle the hover on the favorite page."""
     locator = context.reading_list_page.get_favorite_last_row()
