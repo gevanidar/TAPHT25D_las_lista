@@ -34,7 +34,7 @@ def step_impl(context):
         original_colors.append(original_color)
 
         row.hover()
-        page.wait_for_timeout(500)
+        context.reading_list_page.page.wait_for_timeout(500)
 
         color = evaluate_color(row)
 
@@ -64,4 +64,4 @@ def step_impl(context):
     count = context.count
     for n in range(count):
         expected = expected_alternating[n%2]
-        validate_color_on_row_hover(context, n)
+        validate_color_on_row_hover(context, n, expected)
