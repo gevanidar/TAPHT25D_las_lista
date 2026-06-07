@@ -47,7 +47,6 @@ def step_impl(context, i):
     i = int(i) - 1
     _, row= context.reading_list_page.get_catalog_row(i)
     book = row.get_attribute('data-testid')
-    print(f'{i=}\n{row=}\n{book=}')
     locator = context.reading_list_page.toggle_mark_favorite(book)
 
 @then("ska boken favoritmarkeras")
@@ -89,10 +88,8 @@ def step_impl(context):
 def step_impl(context, title):
     """Validate for checking that a specific book is marked as a favorite."""
     test_id = context.reading_list_page.convert_to_fav_test_id(title)
-    print(f'{test_id=}')
     locator = context.reading_list_page.get_by_test_id(test_id)
     text = locator.inner_text()
-    print(f'{text=}\n{title=}')
     assert context.reading_list_page.contains_favorite_book_title(
         title
     ), f'book with title: "{title}" was not found in the list'

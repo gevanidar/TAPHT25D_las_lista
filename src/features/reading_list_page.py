@@ -56,7 +56,6 @@ class ReadingListPage:
 
         rows = self.get_catalog_rows()
         count = rows.count()
-        print(f'{count=}\n{rows=}\n{i=}')
         if i > count:
             return None
 
@@ -164,10 +163,6 @@ class ReadingListPage:
             favorite_count_text.replace(
                 "Våra användare har hjärtmarkerat ", ""
             ).replace(" böcker.", "")
-        )
-
-        print(
-            f"{book_count_text=}\n{favorite_count_text=}\n{book_count=}\n{favorite_count=}\n"
         )
 
         return book_count, favorite_count
