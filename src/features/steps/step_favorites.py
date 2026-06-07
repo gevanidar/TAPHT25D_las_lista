@@ -42,10 +42,10 @@ def step_impl(context):
     book = get_first_book(context)
     locator = context.reading_list_page.toggle_mark_favorite(book)
 
-@when("jag klickar på rad {row} hjärtat")
-def step_impl(context, row):
+@when("jag klickar på rad {i} hjärtat")
+def step_impl(context, i):
     """Handle the click on a heart, marking a book (row) as favorite."""
-    row, _= context.reading_list_page.get_catalog_last_row()
+    row, _= context.reading_list_page.get_catalog_row(i-1)
     book = row.get_attribute('data-testid')
     locator = context.reading_list_page.toggle_mark_favorite(book)
 
