@@ -96,6 +96,33 @@ class ReadingListPage:
         self.fill_field_with_test_id(data_test_id, author)
 
     # Favorites Page route
+    def get_favorite_rows(self):
+        """Get all rows from the favorite list."""
+        return self.page.locator("div.favorites .book-list")
+
+    def get_favorite_row(self, i):
+        """Get a row from the favorite."""
+        if i < 0:
+            return None
+
+        rows = self.get_favorite_rows()
+        count = rows.count()
+        if i > count:
+            return None
+
+        row = rows.nth(i)
+
+        return row
+
+    def get_favorite_last_row(self):
+        """Return the last favorite row."""
+        rows = self.get_favorite_rows()
+        count = rows.count()
+
+        i = count - 1
+
+        return self.get_favorite_row(i)
+    
     def convert_to_fav_test_id(self, test_id):
         """Convert the default test id to favorite test id."""
         if test_id[:5] == 'star-':

@@ -47,7 +47,7 @@ Feature: Book management
 		And jag fyller i författaren En bra författare
 		And jag trycker på knappen add-submit
 		And jag trycker på knappen catalog
-		And jag markerar en rad
+		And jag markerar sista raden
 		And jag klickar på hjärtat
 		And jag trycker på knappen favorites
 		Then ska jag se en bok med En bra bok i favoritlistan
